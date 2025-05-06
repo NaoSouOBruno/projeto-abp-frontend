@@ -20,7 +20,7 @@ Desenvolver uma aplicação que permita:
 - 🏠 Tela inicial com:
   - 📋 Tabela de cães cadastrados
   - ⚙️ Opções como:
-    - 📈 Estatísticas em tempo real 
+    - 📈 Estatísticas envolvendo o os status e cães cadastrados
     - ➕ Botão para criação de novos cadastros de cães
 - 🔍 Filtros aplicáveis à tabela por:
   - 🐾 Nome  
@@ -34,8 +34,8 @@ Desenvolver uma aplicação que permita:
   - 🖼️ Foto
   - etc...
 - ⚙️ Ações disponíveis por linha da tabela:
-  - 🗑️ Deletar o cão
-  - ✏️ Editar
+  - 🗑️ Deletar a linha do cão
+  - ✏️ Editar as informações do cão
   - ✅ Marcar como:
     - 🏥 Foi ao veterinário (com destaque visual)
     - 🛁 Foi ao pet shop (com destaque visual)
