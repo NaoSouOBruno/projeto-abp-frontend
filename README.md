@@ -40,3 +40,11 @@ Desenvolver uma aplicação que permita:
     - 🏥 Foi ao veterinário (com destaque visual)
     - 🛁 Foi ao pet shop (com destaque visual)
     - 🏡 Foi adotado (com destaque visual)
+   
+💻 Tecnologias utilizadas
+
+- HTML
+- JavaScrip
+- CSS
+- React
+
