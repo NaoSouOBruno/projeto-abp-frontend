@@ -10,7 +10,7 @@ Desenvolver uma aplicação que permita:
 - 📋 Cadastrar perfis de cães (nome, raça, idade, foto, local).
 - 📑 Exibir e gerenciar os cães cadastrados em uma tabela.
 - 🔄 Atualizar o status dos cães (veterinário, pet shop ou adoção) com destaque visual.
-- 📈 Gerar estatísticas em tempo real com base nos status dos cães.
+- 📈 Gerar estatísticas em com base nos status dos cães.
 - 🔎 Oferecer filtros na tabela para facilitar buscas por nome, raça ou idade.
 - ✏️ Edição do perfil do cão
 
