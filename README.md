@@ -1,4 +1,5 @@
 DogMox 🐾
+Grupo - Bruno Pagani Rampinelli, Gabriel Tramontin Aguiar, João Henrique Camilo Fogaça, Yuri Cardoso Maciel
 
 DogMox é um sistema de controle de ALMOXARIFADO de um canil. O sistema permite gerenciar o cadastro de cães, atualizar seus status, acompanhar estatísticas 📊 e facilitar a adoção de animais 🏡.
 
