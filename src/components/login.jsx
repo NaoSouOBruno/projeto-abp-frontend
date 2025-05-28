@@ -1,5 +1,7 @@
 import './login.css'
 
+import { Link } from 'react-router-dom';
+
 export function login(){
   
 
@@ -10,11 +12,17 @@ export function login(){
         </div>
         <div className = 'login_user'>
           <form action="">
-              <img src="/src/assets/user.png" alt="user" />
+              <img src="/src/assets/login/user.png" alt="user" />
               <input className = 'login_usuario' name = "Usuario" type="text" placeholder="Usuário" required/>
-              <img src="/src/assets/senha.png" alt="senha" />
+              <img src="/src/assets/login/senha.png" alt="senha" />
               <input className = 'login_senha' name = "Senha" type="password" placeholder="Senha" required/>
               <button type="submit">Acessar</button>
+
+              <Link to="/index">
+              <p style={{ fontSize: "75%"}}>
+              DEBUG: Acessar Index
+              </p>
+              </Link>
           </form>
         </div>
       </div>
