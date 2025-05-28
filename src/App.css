@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Archive';
+    src: url('./fonts/Archive/Archive-Regular.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'clear-sans';
+    src: url('./fonts/clear-sans/ClearSans-Regular.woff') format('woff');
+}

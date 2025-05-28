@@ -14,7 +14,7 @@ export function login(){
               <input className = 'login_usuario' name = "Usuario" type="text" placeholder="Usuário" required/>
               <img src="/src/assets/senha.png" alt="senha" />
               <input className = 'login_senha' name = "Senha" type="password" placeholder="Senha" required/>
-              <button  type="submit" >Acessar</button>
+              <button type="submit">Acessar</button>
           </form>
         </div>
       </div>
