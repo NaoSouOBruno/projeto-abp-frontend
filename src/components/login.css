@@ -1,0 +1,136 @@
+html{
+  height: 100%;
+  width: 100%;
+  
+}
+
+body  {
+  height: 100vh;
+  width: 100%;
+  margin: 0%;
+  
+}
+
+#root{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient( rgb(127, 40, 209), rgb(38, 92, 192));
+
+}
+
+
+.login_div{
+  width: 190px ;
+  height: 250px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  transform: scale(1.4);
+}
+
+.login_div2{
+  
+  display: flex;
+  flex-direction: line;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+.login_user{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  
+}
+
+.login_user form {
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  
+  
+  
+}
+.login_user form img{
+
+  height: auto;
+  width: 20px;
+
+
+}
+.login_div img {
+  height: auto;
+  width: 90%;
+}
+
+.login_usuario{
+  width: 130px;
+  height: 15px;
+  border-radius: 5px;
+  background-color: rgba(160, 132, 185, 0.5);
+  border: 0px;
+  font-size:x-small;
+  font-family: 'Inter', sans-serif;
+  
+}
+
+.login_senha{
+  width: 130px;
+  height: 15px;
+  border-radius: 5px;
+  background-color: rgba(160, 132, 185, 0.5);
+  border: 0px;
+  font-size:x-small;
+  font-family: 'Inter', sans-serif;
+}
+
+
+
+.login_div input:focus{
+  box-shadow: 2px 2px 2px 2px  rgb(135,206,235);
+  transition: 0.2s;
+  border: 0px;
+  
+}
+
+
+.login_div button{
+  width: 150px;
+  height: 20px;
+  font-size: small;
+  font-family: 'Inter', sans-serif;
+  border: 0px;
+  border-radius: 6px;
+
+}
+
+.login_div button:hover{
+  background-color:rgb(135,206,235) ;
+  transition: 0.4s;
+  background: linear-gradient( rgb(165, 120, 207), rgb(95, 130, 196));
+}
+
+
+
+
