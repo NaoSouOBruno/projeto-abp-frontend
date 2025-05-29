@@ -1,9 +1,18 @@
-DogMox 🐾
-Grupo - Bruno Pagani Rampinelli, Gabriel Tramontin Aguiar, João Henrique Camilo Fogaça, Yuri Cardoso Maciel
+# DogMox 🐾
+
+<b>Grupo:</b>
+- Bruno Pagani Rampinelli
+- Gabriel Tramontin Aguiar
+- João Henrique Camilo Fogaça
+- Yuri Cardoso Maciel
+
+<br>
 
 DogMox é um sistema de controle de ALMOXARIFADO de um canil. O sistema permite gerenciar o cadastro de cães, atualizar seus status, acompanhar estatísticas 📊 e facilitar a adoção de animais 🏡.
 
-🎯 Objetivo do Projeto
+<br>
+
+## 🎯 Objetivo do Projeto
 
 Desenvolver uma aplicação que permita:
 - 🔐 Realizar login de usuários.
@@ -14,7 +23,7 @@ Desenvolver uma aplicação que permita:
 - 🔎 Oferecer filtros na tabela para facilitar buscas por nome, raça ou idade.
 - ✏️ Edição do perfil do cão
 
-🐶 Funcionalidades Principais
+## 🐶 Funcionalidades Principais
 
 - 🔐 Tela de login para autenticação dos usuários  
 - 🏠 Tela inicial com:
@@ -41,10 +50,10 @@ Desenvolver uma aplicação que permita:
     - 🛁 Foi ao pet shop (com destaque visual)
     - 🏡 Foi adotado (com destaque visual)
    
-💻 Tecnologias utilizadas
+## 💻 Tecnologias utilizadas
 
 - HTML
-- JavaScrip
+- JavaScript
 - CSS
 - React
 
