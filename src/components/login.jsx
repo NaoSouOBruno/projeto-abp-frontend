@@ -11,7 +11,7 @@ export function login(){
           <img src="/public/logo.png" alt="dog" />
         </div>
         <div className = 'login_user'>
-          <form action="">
+          <form action="/index">
               <img src="/src/assets/login/user.png" alt="user" />
               <input className = 'login_usuario' name = "Usuario" type="text" placeholder="Usuário" required/>
               <img src="/src/assets/login/senha.png" alt="senha" />
