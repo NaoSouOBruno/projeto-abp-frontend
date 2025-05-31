@@ -1,0 +1,10 @@
+#estoque {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 800px;
+    background-color: white;
+    gap: 10px;
+    overflow: auto;
+    border-radius: 20px;
+}

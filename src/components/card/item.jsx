@@ -1,10 +1,14 @@
+import "./item.css"
 
+// to vendo se faço de funcionarios ou um estoque
 
-export function Item({nome}) {
+export function Item(
+    {imagem,nome}) {
 
     return(
-        <div>
-            <p>{nome}</p>
+        <div id="item">
+            <img src = {imagem}/>
+            <div>{nome}</div>
         </div>
     );
 }
