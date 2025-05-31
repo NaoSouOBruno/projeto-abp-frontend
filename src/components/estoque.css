@@ -1,10 +1,56 @@
 #estoque {
     display: flex;
+    align-content: start;
+    justify-content: center;
     flex-wrap: wrap;
     width: 90%;
     height: 800px;
     background-color: white;
     gap: 10px;
     overflow: auto;
+    border-radius: 20px;    
+}
+
+#estoque h1{
+  
+    font-family: 'clear-sans';
+    border-bottom: 5px solid blueviolet;
+    width: 100%;
+    
+}
+
+#estoque table{
+    font-family: 'clear-sans';
+    background: linear-gradient( rgba(127, 40, 209, 0.116), rgb(38, 92, 192));
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    width: 90%;
+    height: auto;
     border-radius: 20px;
+    
+}
+
+#estoque_info{
+
+    
+
+}
+
+
+#estoque_info th{
+    background-color: rgb(61, 42, 148);
+    border: 2px solid white;
+    
+    
+    
+}
+
+#estoque_dados {
+
+        
+
+}
+
+#estoque_dados tr {
+
+
 }
