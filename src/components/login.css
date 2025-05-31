@@ -8,7 +8,7 @@ body  {
   height: 100vh;
   width: 100%;
   margin: 0%;
-  background: linear-gradient( rgb(127, 40, 209), rgb(38, 92, 192));
+  background: rgb(38, 92, 192);
 }
 
 #root{
@@ -35,16 +35,6 @@ body  {
   padding: 20px;
   background-color: rgb(255, 255, 255);
   transform: scale(1.4);
-}
-
-.login_div2{
-  
-  display: flex;
-  flex-direction: line;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
 }
 
 .login_user{

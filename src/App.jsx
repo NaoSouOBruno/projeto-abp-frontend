@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { login } from "./components/login.jsx";
 import { index } from "./components/index.jsx";
+import { estoque } from "./components/estoque.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,11 @@ const router = createBrowserRouter([
   {
     path: "/index",
     element: index()
-  }
+  },
+  {
+    path: "/estoque",
+    element: estoque()
+  },
 ]);
 
 

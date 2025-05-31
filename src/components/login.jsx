@@ -7,9 +7,7 @@ export function login(){
 
   return (
      <div className = 'login_div'>
-        <div className = "login_div2">
-          <img src="/public/logo.png" alt="dog" />
-        </div>
+        <img src="/public/logo.png" alt="dog" />
         <div className = 'login_user'>
           <form action="/index">
               <img src="/src/assets/login/user.png" alt="user" />
@@ -22,6 +20,11 @@ export function login(){
               <p style={{ fontSize: "75%"}}>
               DEBUG: Acessar Index
               </p>
+              </Link>
+              <Link to="/estoque">
+                <p style={{ fontSize: "75%"}}>
+                DEBUG: Acessar Estoque
+                </p>
               </Link>
           </form>
         </div>
