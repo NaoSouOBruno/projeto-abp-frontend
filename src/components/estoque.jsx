@@ -1,5 +1,6 @@
 import './estoque.css'
-import { Item } from "./card/item";
+import { Add } from './estoque/add_estoque';
+import { useState } from 'react';
 
 const DB_ITEM = [
          {
@@ -66,10 +67,16 @@ const DB_ITEM = [
              quantidade:12,
         },
     ];
-export function estoque(){
+
+    
+export function Estoque(){
+
+    const [open,setOpen] = useState(false)
+
     return(
           <div id = "estoque">
             <h1>Estoque</h1>
+
             <div id = "div_tabela">
                 <table>
                     <tr>
@@ -90,13 +97,11 @@ export function estoque(){
                     ) ) } 
                 </table>
             </div>
-            
-            
-            
-            
-            
-            
-            
+            <div>
+                <button onClick={() => setOpen(true)}><img src="/src/assets/estoque/+.png" alt="add"/></button>
+            </div>
+            <Add open={open}/>
+ 
           </div>
     );
 }

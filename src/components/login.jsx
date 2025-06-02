@@ -2,7 +2,7 @@ import './login.css'
 
 import { Link } from 'react-router-dom';
 
-export function login(){
+export function Login(){
   
 
   return (

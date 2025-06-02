@@ -2,14 +2,14 @@ import "./App.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { login } from "./components/login.jsx";
+import { Login } from "./components/login.jsx";
 import { index } from "./components/index.jsx";
-import { estoque } from "./components/estoque.jsx";
+import { Estoque } from "./components/estoque.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: login()
+    element: <Login/>
   },
   {
     path: "/index",
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/estoque",
-    element: estoque()
+    element: <Estoque/>
   },
 ]);
 
