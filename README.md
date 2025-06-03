@@ -22,6 +22,7 @@ Desenvolver uma aplicação que permita:
 - 📈 Gerar estatísticas em com base nos status dos cães.
 - 🔎 Oferecer filtros na tabela para facilitar buscas por nome, raça ou idade.
 - ✏️ Edição do perfil do cão
+- 📦 Gerenciar o estoque permite a criação de novos itens e também a alteração na quantidade.
 
 ## 🐶 Funcionalidades Principais
 
@@ -43,13 +44,18 @@ Desenvolver uma aplicação que permita:
   - 🖼️ Foto
   - etc...
 - ⚙️ Ações disponíveis por linha da tabela:
-  - 🗑️ Deletar a linha do cão
+  - 🗑️ Deletar o Card do cão
   - ✏️ Editar as informações do cão
   - ✅ Marcar como:
     - 🏥 Foi ao veterinário (com destaque visual)
     - 🛁 Foi ao pet shop (com destaque visual)
     - 🏡 Foi adotado (com destaque visual)
-   
+-📦 Tela de gerenciamento de estoque com:
+  -➕ Criação de novos itens no estoque
+  -➖ Remoção de itens existentes
+  -♻️ Modificação da quantidade dos itens e seus atributos
+  -🔍 Filtros aplicáveis
+
 ## 💻 Tecnologias utilizadas
 
 - HTML
