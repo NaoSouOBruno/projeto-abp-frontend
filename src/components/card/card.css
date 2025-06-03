@@ -4,6 +4,10 @@
     border-radius: 20px;
     margin: 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
     
 }
 
@@ -15,6 +19,7 @@
 }
 
 .cardBody {
+    flex: 1;
     padding: 15px;
 }
 
@@ -22,4 +27,19 @@
     font-size: 24px;
     font-weight: bold;
     margin: 5px;
+}
+
+.btnMaisInformacoes {
+    align-items: baseline;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #7f28d1;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+
+    align-self: flex-end;
+    margin-top: auto;
 }

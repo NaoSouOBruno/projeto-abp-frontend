@@ -23,33 +23,29 @@ const caes = [
 export function index() {
     return (
         <div className='index'>
-            <h1>Cachorrinhos para adoção!</h1>
-            <p>Adote um amigo!</p>
+            <h1>Cachorrinhos abrigados</h1>
 
-            
-
-            <div class="divCachorros">
+            <div className="divTabela">
                 <div className='divFiltros'>
                     <div className='divPesquisa'>
                         <input
                             type="text"
-                            placeholder="Pesquisar por nome..."
-                            className="inputPesquisa"
+                            placeholder="Nome do cachorro..."
                         />
                     </div>
                 </div>
-
-            {caes.map((cao) => (
-                <Card
-                    img={cao.img}
-                    nome={cao.nome}
-                    descricao={cao.descricao}
-                    buttonLabel="Adotar"
-                />
-            ))}
-            
+                <div class="divCachorros">
+                    {caes.map((cao) => (
+                        <Card
+                            img={cao.img}
+                            nome={cao.nome}
+                            descricao={cao.descricao}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
+
     )
 
 }
