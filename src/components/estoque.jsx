@@ -10,10 +10,16 @@ export function Estoque(){
 
     const [DB_ITEM,setDB_ITEM] = useState([]);
 
-    // localStorage.setItem('DB_ITEM',JSON.stringify(DB_ITEM))
+
+    useEffect(() => {
+        const dados = localStorage.getItem('DB_ITEM'); // pega os daods de local storage se tiver alguma coisa se não continua vazia
+        if (dados !== null && dados !== undefined){
+            setDB_ITEM(JSON.parse(dados));
+            
+        }
+    },[]);
 
     
-
 
     return(
           <div id = "estoque">
