@@ -1,6 +1,8 @@
 .index {
+    background-color: #faf8ff;
+
     font-family: 'clear-sans';
-    background-color: rgb(240, 240, 240);
+    
     width: 90%;
     height: 90%;
     border-radius: 20px;
@@ -8,6 +10,7 @@
 
 .divTabela {
     background-color: rgb(255, 255, 255);
+
     margin-left: 50px;
     margin-right: 50px;
 
@@ -16,17 +19,158 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.divFiltros {
+.divCabecalho {
     background-color: #7f28d1;
+
     height: 80px;
     border-radius: 20px 20px 0 0;
-    
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 50px 0 50px;
+}
+
+.inputPesquisa {
+    background-color: #faf8ff;
+    border: 1px solid #d0d0d0;
+
+    width: 70%;
+    height: 48px;
+    border-radius: 8px;
+
+    outline: none;
+}
+
+.btnAdicionar {
+    background-color: #faf8ff;
+    color: #7f28d1;
+
+    border: none;
+    border-radius: 50%;
+
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    font-size: 32px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
 }
 
 .divCachorros {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
+.popupOverlay {
+    background: rgba(0,0,0,0.5);
 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popupBody {
+    background: white;
+
+    border-radius: 20px;
+    min-width: 300px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+.divCabecalhoPopup {
+    background: #7f28d1;
+    color: #ffffff;
+
+    font-size: 16px;
+
+    padding: 8px 24px;
+    border-radius: 20px 20px 0 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botaoFecharPopup {
+    color: #ffffff;
+
+    background: transparent;
+    border: none;
+    
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.addCachorro {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+    padding: 24px;
+}
+
+.addCachorro p {
+    color: #444444;
+
+    margin: 0 0 2px 0;
+    font-size: 16px;
+    
+    text-align: left;
+}
+
+.addCachorro input[type="text"], .addCachorro input[type="file"] {
+    background: #faf8ff;
+    border: 1px solid #d0d0d0;
+
+    padding: 10px;
+    border-radius: 8px;
+    
+    
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+    
+}
+
+.addCachorro input[type="file"] {
+    background: #fff;
+    padding: 7px;
+}
+
+.addCachorro button[type="submit"] {
+    margin-top: 10px;
+    padding: 12px 0;
+    background: #7f28d1;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.08rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.addCachorro button[type="submit"]:hover {
+    background: #5d1fa0;
+}

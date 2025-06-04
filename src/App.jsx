@@ -3,7 +3,7 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Login } from "./components/login.jsx";
-import { index } from "./components/index.jsx";
+import { Index } from "./components/index.jsx";
 import { Estoque } from "./components/estoque.jsx";
 
 const router = createBrowserRouter([
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/index",
-    element: index()
+    element: <Index/>
   },
   {
     path: "/estoque",
