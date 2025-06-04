@@ -1,12 +1,32 @@
 .index {
     font-family: 'clear-sans';
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(240, 240, 240);
     width: 90%;
     height: 90%;
     border-radius: 20px;
+}
+
+.divTabela {
+    background-color: rgb(255, 255, 255);
+    margin-left: 50px;
+    margin-right: 50px;
+
+    border-radius: 20px;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.divFiltros {
+    background-color: #7f28d1;
+    height: 80px;
+    border-radius: 20px 20px 0 0;
+    
 }
 
 .divCachorros {
     display: flex;
     flex-wrap: wrap;
 }
+
+
+

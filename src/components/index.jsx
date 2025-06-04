@@ -21,21 +21,31 @@ const caes = [
 ];
 
 export function index() {
-
     return (
         <div className='index'>
-            <p>Cachorrinhos para adoção!</p>
-            <div class="divCachorros">
-            {caes.map((cao) => (
-                <Card
-                    img={cao.img}
-                    nome={cao.nome}
-                    descricao={cao.descricao}
-                    buttonLabel="Adotar"
-                />
-            ))}
+            <h1>Cachorrinhos abrigados</h1>
+
+            <div className="divTabela">
+                <div className='divFiltros'>
+                    <div className='divPesquisa'>
+                        <input
+                            type="text"
+                            placeholder="Nome do cachorro..."
+                        />
+                    </div>
+                </div>
+                <div class="divCachorros">
+                    {caes.map((cao) => (
+                        <Card
+                            img={cao.img}
+                            nome={cao.nome}
+                            descricao={cao.descricao}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
+
     )
 
 }
