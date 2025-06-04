@@ -1,77 +1,19 @@
 import './estoque.css'
 import { Add } from './estoque/add_estoque';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const DB_ITEM = [
-         {
-            imagem:'/src/assets/estoque/ração.jpg',
-            nome:'Testse',
-             codigo:"34534",
-             unidade:"pacote",
-             quantidade:12,
-        },
-        {
-            imagem:'/src/assets/estoque/ração.jpg',
-            nome:'Teste',
-             codigo:"34534",
-             unidade:"pacote",
-             quantidade:12,
-        },
-        {
-            imagem:'/src/assets/estoque/ração.jpg',
-            nome:'Teste',
-             codigo:"34534",
-             unidade:"pacote",
-             quantidade:12,
-        },
-        {
-            imagem:'/src/assets/estoque/ração.jpg',
-            nome:'Teste',
-             codigo:"34534",
-             unidade:"pacote",
-             quantidade:12,
-        },
-        {
-            imagem:'/src/assets/estoque/ração.jpg',
-            nome:'Teste',
-             codigo:"34534",
-             unidade:"pacote",
-             quantidade:12,
-        },
-        {
-            imagem:'/src/assets/estoque/ração.jpg',
-            nome:'Teste',
-             codigo:"34534",
-             unidade:"pacote",
-             quantidade:12,
-        },
-        {
-            imagem:'/src/assets/estoque/ração.jpg',
-            nome:'Teste',
-             codigo:"34534",
-             unidade:"pacote",
-             quantidade:12,
-        },
-        {
-            imagem:'/src/assets/estoque/ração.jpg',
-            nome:'Teste',
-             codigo:"34534",
-             unidade:"pacote",
-             quantidade:12,
-        },
-        {
-            imagem:'/src/assets/estoque/ração.jpg',
-            nome:'Teste',
-             codigo:"34534",
-             unidade:"pacote",
-             quantidade:12,
-        },
-    ];
 
     
 export function Estoque(){
 
-    const [open,setOpen] = useState(false)
+    const [open,setOpen] = useState(false);
+
+    const [DB_ITEM,setDB_ITEM] = useState([]);
+
+    // localStorage.setItem('DB_ITEM',JSON.stringify(DB_ITEM))
+
+    
+
 
     return(
           <div id = "estoque">
@@ -100,8 +42,8 @@ export function Estoque(){
             <div>
                 <button onClick={() => setOpen(true)}><img src="/src/assets/estoque/+.png" alt="add"/></button>
             </div>
-            <Add open={open}/>
- 
+            <Add open={open} setOpen={() => setOpen(false)}/>
+
           </div>
     );
 }

@@ -52,14 +52,14 @@ table{
     background: linear-gradient( rgba(127, 40, 209, 0.116), rgb(38, 92, 192));
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     width: 90%;
-    height: 90%;
-    border-radius: 20px;
+    height: 100px;
+    max-height: 90%;
+    
     
 }
 
 th{
-    border-top-right-radius:20px; 
-    border-top-left-radius:20px; 
+     
     border: 2px solid rgb(0, 0, 0); 
     
 }
