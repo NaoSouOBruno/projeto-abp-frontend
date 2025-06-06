@@ -10,7 +10,7 @@ export function Index() {
         // alguns cachorrinhos placeholder!
         {
             img: '/src/assets/index/cachorro1.jpeg',
-            idade: '2 ano',
+            idade: '2 anos',
             raca: 'Pastor Alemão',
             nome: 'Ringo',
             descricao: 'Esse é o Ringo, ele é muito legal e adora brincar!'
