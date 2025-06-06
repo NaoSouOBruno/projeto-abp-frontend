@@ -5,7 +5,9 @@ import './index.css'
 import { Card } from './card/card.jsx'
 
 export function Index() {
+
     const [caes, setCaes] = useState([
+        // alguns cachorrinhos placeholder!
         {
             img: '/src/assets/index/cachorro1.jpeg',
             idade: '2 ano',
@@ -26,8 +28,23 @@ export function Index() {
             raca: 'Vira-lata',
             nome: 'Wilsinho',
             descricao: 'Esse é o Wilsinho, ele é muito esperto e adora aprender novos truques!'
+        },
+        {
+            img: '/src/assets/index/cachorro4.jpg',
+            idade: '33 anos',
+            raca: 'Developer',
+            nome: 'Toby',
+            descricao: 'Esse é o Toby, ele adora programar e compor músicas!'
         }
     ]);
+
+    const [filtroNome, setFiltroNome] = useState('');
+
+    const [caoDetalhe, setCaoDetalhe] = useState(null);
+
+    const caesFiltrados = caes.filter(cao =>
+        cao.nome.toLowerCase().includes(filtroNome.toLowerCase())
+    );
 
     const [mostrarPopup, setMostrarPopup] = useState(false);
 
@@ -41,18 +58,18 @@ export function Index() {
 
     function alterarForm(e) {
         const { name, value, files } = e.target;
-        if (name === 'img' && files.length > 0) { // verifica campo imagem
-            setForm({ ...form, img: URL.createObjectURL(files[0]) }); // cria url temporaria
+        if (name === 'img' && files.length > 0) {                           // verifica campo imagem
+            setForm({ ...form, img: URL.createObjectURL(files[0]) });       // cria url temporaria
         } else {
-            setForm({ ...form, [name]: value }); // atualiza o estado do form
+            setForm({ ...form, [name]: value });                            // atualiza o estado do form
         }
     }
 
     function aoSubmit(e) {
         e.preventDefault();
 
-        setCaes([...caes, form]); // adiciona cachorro novo ao array
-        setMostrarPopup(false); // fecha popup
+        setCaes([...caes, form]);                                           // adiciona cachorro novo no fim do array
+        setMostrarPopup(false);                                             // fecha popup
         setForm({ nome: '', idade: '', raca: '', descricao: '', img: '' }); // limpa form
     }
 
@@ -65,6 +82,8 @@ export function Index() {
                         type="text"
                         className="inputPesquisa"
                         placeholder="Nome do cachorro..."
+                        value={filtroNome}
+                        onChange={e => setFiltroNome(e.target.value)}
                     />
                     <button
                         className='btnAdicionar'
@@ -73,21 +92,22 @@ export function Index() {
                         +
                     </button>
 
-                        
+                
                 </div>
                 <div className="divCachorros">
-                    {caes.map((cao) => (
+                    {caesFiltrados.map((cao) => (
                         <Card
+                            key={cao.nome}
                             img={cao.img}
                             nome={cao.nome}
                             descricao={cao.descricao}
+                            onDetalhes={() => setCaoDetalhe(cao)}
                         />
                     ))}
                 </div>
             </div>
 
             {mostrarPopup && (
-
                 <div className="popupOverlay">
                     <div className="popupBody">
                         <div className="divCabecalhoPopup">
@@ -109,6 +129,25 @@ export function Index() {
                             <br/>
                             <button type="submit">Cadastrar</button>
                         </form>
+                    </div>
+                </div>
+            )}
+
+            {caoDetalhe && (
+                <div className="popupOverlay">
+                    <div className="popupBody">
+                        <div className="divCabecalhoPopup">
+                            <h2>{caoDetalhe.nome}</h2>
+                            <button className="botaoFecharPopup" onClick={() => setCaoDetalhe(null)}>X</button>
+                        </div>
+                        <div className="detalhesBody">
+                            <img src={caoDetalhe.img} alt={caoDetalhe.nome}/>
+                            <div className="detalhesBodyInfo">
+                                <p><b>Idade:</b> {caoDetalhe.idade}</p>
+                                <p><b>Raça:</b> {caoDetalhe.raca}</p>
+                                <p><b>Descrição:</b> {caoDetalhe.descricao}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}

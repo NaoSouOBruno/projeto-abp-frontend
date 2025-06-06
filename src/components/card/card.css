@@ -11,6 +11,10 @@
     
 }
 
+.card:hover {
+    box-shadow: rgba(50, 50, 93, 0.75) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
 .cardImagem {
     height: 240px;
     width: 100%;
@@ -21,6 +25,9 @@
 .cardBody {
     flex: 1;
     padding: 15px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .cardTitle {
@@ -30,16 +37,13 @@
 }
 
 .btnMaisInformacoes {
-    align-items: baseline;
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #7f28d1;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 10px;
-
-    align-self: flex-end;
+    color: #7f28d1;
     margin-top: auto;
+    align-self: flex-end;
+}
+
+.btnMaisInformacoes:hover {
+    color: #5a1f9c;
+    cursor: pointer;
+    text-decoration: underline;
 }

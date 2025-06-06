@@ -4,6 +4,7 @@ export function Card({
   img,
   nome,
   descricao,
+  onDetalhes,
   children,
 }) {
   return (
@@ -23,8 +24,8 @@ export function Card({
 
         {descricao ? <p className="cardText">{descricao}</p> : null}
 
-        <a href="#go" className="btnMaisInformacoes">
-          Detalhes
+        <a className="btnMaisInformacoes" onClick={onDetalhes}>
+          Mais detalhes ››
         </a>
 
         {children}

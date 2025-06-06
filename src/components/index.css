@@ -174,3 +174,14 @@
 .addCachorro button[type="submit"]:hover {
     background: #5d1fa0;
 }
+
+.detalhesBody {
+    text-align: center;
+    display: flex;
+}
+
+.detalhesBody img {
+    min-height: 500px;
+    min-width: 400px;
+    border-radius: 0 0 0 20px;
+}
