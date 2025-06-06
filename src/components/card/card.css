@@ -47,3 +47,37 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+.cardStatus {
+    position: absolute;
+    display: inline-block;
+
+    top: 18px;
+    left: 18px;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px rgba(127,40,209,0.08);
+
+    z-index: 2;
+}
+
+.statusVeterinario {
+    background: #ffb347;
+}
+.statusPetshop {
+    background: #4fc3f7;
+}
+.statusAbrigo {
+    background: #56e976;
+}
+.statusAdotado {
+    background: #db4343;
+}
+.statusVazio {
+    background: #ccc;
+}

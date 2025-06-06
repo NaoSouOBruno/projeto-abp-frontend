@@ -13,28 +13,45 @@ export function Index() {
             idade: '2 anos',
             raca: 'Pastor Alemão',
             nome: 'Ringo',
-            descricao: 'Esse é o Ringo, ele é muito legal e adora brincar!'
+            local: 'Abrigo de Animais Treviso',
+            descricao: 'Esse é o Ringo, ele é muito legal e adora brincar!',
+            status: 'No Veterinário'
         },
         {
             img: '/src/assets/index/cachorro2.jpg',
             idade: '1 ano',
             raca: 'Chihuahua',
             nome: 'Rei Henrique VIII',
-            descricao: 'Esse é o Rei Henrique VIII, ele é muito carinhoso e adora passear!'
+            local: 'Abrigo de Animais Treviso',
+            descricao: 'Esse é o Rei Henrique VIII, ele é muito carinhoso e adora passear!',
+            status: 'No Petshop'
         },
         {
             img: '/src/assets/index/cachorro3.png',
             idade: '3 meses',
             raca: 'Vira-lata',
             nome: 'Wilsinho',
-            descricao: 'Esse é o Wilsinho, ele é muito esperto e adora aprender novos truques!'
+            local: 'Abrigo de Animais Siderópolis',
+            descricao: 'Esse é o Wilsinho, ele é muito esperto e adora aprender novos truques!',
+            status: 'No Abrigo'
         },
         {
             img: '/src/assets/index/cachorro4.jpg',
             idade: '33 anos',
             raca: 'Developer',
             nome: 'Toby',
-            descricao: 'Esse é o Toby, ele adora programar e compor músicas!'
+            local: 'Abrigo de Animais Siderópolis',
+            descricao: 'Esse é o Toby, ele adora programar e compor músicas!',
+            status: 'Adotado'
+        },
+        {
+            img: '/src/assets/index/cachorro5.jpg',
+            idade: '19 anos',
+            raca: 'Humano',
+            nome: 'Bruno',
+            local: 'Treviso',
+            descricao: 'Oi, eu sou o Bruno! Eu que fiz essa página.',
+            status: 'No Abrigo'
         }
     ]);
 
@@ -46,31 +63,33 @@ export function Index() {
         cao.nome.toLowerCase().includes(filtroNome.toLowerCase())
     );
 
-    const [mostrarPopup, setMostrarPopup] = useState(false);
+    const [caoAdd, setCaoAdd] = useState(false);
 
     const [form, setForm] = useState({
         nome: '',
         idade: '',
         raca: '',
+        local: '',
         descricao: '',
-        img: ''
+        img: '',
+        status: ''
     });
 
     function alterarForm(e) {
         const { name, value, files } = e.target;
-        if (name === 'img' && files.length > 0) {                           // verifica campo imagem
-            setForm({ ...form, img: URL.createObjectURL(files[0]) });       // cria url temporaria
+        if (name === 'img' && files.length > 0) {                                                       // verifica campo imagem
+            setForm({ ...form, img: URL.createObjectURL(files[0]) });                                   // cria url temporaria
         } else {
-            setForm({ ...form, [name]: value });                            // atualiza o estado do form
+            setForm({ ...form, [name]: value });                                                        // atualiza o estado do form
         }
     }
 
     function aoSubmit(e) {
         e.preventDefault();
 
-        setCaes([...caes, form]);                                           // adiciona cachorro novo no fim do array
-        setMostrarPopup(false);                                             // fecha popup
-        setForm({ nome: '', idade: '', raca: '', descricao: '', img: '' }); // limpa form
+        setCaes([...caes, form]);                                                                       // adiciona cachorro novo no fim do array
+        setCaoAdd(false);                                                                               // fecha popup
+        setForm({nome: '', idade: '', raca: '', local: '', descricao: '', img: '', status: ''});        // limpa form
     }
 
     return (
@@ -87,7 +106,7 @@ export function Index() {
                     />
                     <button
                         className='btnAdicionar'
-                        onClick={() => setMostrarPopup(true)}
+                        onClick={() => setCaoAdd(true)}
                     >
                         +
                     </button>
@@ -101,18 +120,19 @@ export function Index() {
                             img={cao.img}
                             nome={cao.nome}
                             descricao={cao.descricao}
+                            status={cao.status}
                             onDetalhes={() => setCaoDetalhe(cao)}
                         />
                     ))}
                 </div>
             </div>
 
-            {mostrarPopup && (
+            {caoAdd && (
                 <div className="popupOverlay">
                     <div className="popupBody">
                         <div className="divCabecalhoPopup">
                             <h2>Cadastrar cachorro</h2>
-                            <button className="botaoFecharPopup" onClick={() => setMostrarPopup(false)}>X</button>
+                            <button className="botaoFecharPopup" onClick={() => setCaoAdd(false)}>X</button>
                         </div>
                         <form action="" className='addCachorro' onSubmit={aoSubmit}>
                             <p>Nome:</p>
@@ -121,10 +141,20 @@ export function Index() {
                             <input type="text" name="idade" value={form.idade} onChange={alterarForm} required />
                             <p>Raça:</p>
                             <input type="text" name="raca" value={form.raca} onChange={alterarForm} required />
+                            <p>Local:</p>
+                            <input type="text" name="local" value={form.local} onChange={alterarForm} required />
                             <p>Descrição:</p>
                             <input type="text" name="descricao" value={form.descricao} onChange={alterarForm} required />
                             <p>Imagem:</p>
                             <input type="file" name="img" accept="image/*" onChange={alterarForm} />
+                            <p>Status:</p>
+                            <select name="status" value={form.status} onChange={alterarForm} required>
+                                <option value="">Selecione o status</option>
+                                <option value="No Veterinário">No Veterinário</option>
+                                <option value="No Petshop">No Petshop</option>
+                                <option value="No Abrigo">No Abrigo</option>
+                                <option value="Adotado">Adotado</option>
+                            </select>
                             <br/>
                             <br/>
                             <button type="submit">Cadastrar</button>
@@ -143,9 +173,16 @@ export function Index() {
                         <div className="detalhesBody">
                             <img src={caoDetalhe.img} alt={caoDetalhe.nome}/>
                             <div className="detalhesBodyInfo">
-                                <p><b>Idade:</b> {caoDetalhe.idade}</p>
-                                <p><b>Raça:</b> {caoDetalhe.raca}</p>
-                                <p><b>Descrição:</b> {caoDetalhe.descricao}</p>
+                                <b>Idade:</b>
+                                <p>{caoDetalhe.idade}</p>
+                                <b>Raça:</b>
+                                <p>{caoDetalhe.raca}</p>
+                                <b>Local:</b>
+                                <p>{caoDetalhe.local}</p>
+                                <b>Descrição:</b>
+                                <p>{caoDetalhe.descricao}</p>
+                                <b>Status:</b>
+                                <p>{caoDetalhe.status}</p>
                             </div>
                         </div>
                     </div>
