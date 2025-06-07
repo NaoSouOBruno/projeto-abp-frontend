@@ -26,6 +26,11 @@ export function Login(){
                 DEBUG: Acessar Estoque
                 </p>
               </Link>
+              <Link to="/stats">
+                <p style={{ fontSize: "75%"}}>
+                DEBUG: Acessar Stats
+                </p>
+              </Link>
           </form>
         </div>
       </div>
