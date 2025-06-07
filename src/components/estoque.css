@@ -22,16 +22,21 @@
 }
 
 
+button{
+    background-color: rgba(255, 255, 255, 0);
+    width: 12%;
+    border: 0px;
+
+}
 
 #estoque button img{
-    width: 30px;
+    
+    width: 100%;
+    height: auto;
 }
 
 #estoque button:hover{
-
-    background: linear-gradient( rgb(127, 40, 209), rgb(38, 92, 192));
-
-
+    cursor: pointer;
 }
 
 #div_tabela{

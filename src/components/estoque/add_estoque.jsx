@@ -10,7 +10,7 @@ export function Add({open,setOpen}){
 
     if (!open) return null;
         
-    
+
     const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM")) || [];
         
     const item_construcao = (e) => {   //constroi o item quando o input recebe alteração  
@@ -34,11 +34,11 @@ export function Add({open,setOpen}){
 
     
 
-    const add_item = (e) => { //add o item para o local storage e fecha a o menu de criação atualizando a pagina
-        e.preventDefault();
+    const add_item = () => { //add o item para o local storage e fecha a o menu de criação atualizando a pagina
         const novos_itens = [...DB_ITEM,item_novo];
         localStorage.setItem("DB_ITEM",JSON.stringify(novos_itens));
         setOpen(false);
+        window.location.reload(false);
         }
 
 
@@ -49,21 +49,23 @@ export function Add({open,setOpen}){
                 <div id="menu">
                     <h1>Criação de item</h1>
                     <form action="">
-                    <h2>Imagem</h2>
+                    <h2>Imagem:</h2>
                     <input onChange={item_construcao} type="file" name="imagem"  />
-                    <h2>Nome</h2>
+                    <img src={item_novo.imagem ? item_novo.imagem : "/logos/logo1.png"} alt="" />
+                    <h2>Nome:</h2>
                     <input value={item_novo.nome} onChange={item_construcao} name="nome" type="text" />
-                    <h2>Código</h2>
+                    <h2>Código:</h2>
                     <input value={item_novo.codigo} onChange={item_construcao} name="codigo" type="text" />
-                    <h2>Unidade</h2>
+                    <h2>Unidade:</h2>
                     <input value={item_novo.unidade} onChange={item_construcao} name="unidade" type="text" />
-                    <h2>Quantidade</h2>
+                    <h2>Quantidade:</h2>
                     <input value={item_novo.quantidade} onChange={item_construcao} name="quantidade" type="number" />
-                    <button onClick={add_item}>Criar</button>
-                    </form>
-                             
-
-                    <button id="buttom_cancelar" onClick={setOpen}>Cancelar</button>
+                    
+                    <div id="botoes">
+                        <button onClick={add_item}>Criar</button> 
+                        <button onClick={setOpen}>Cancelar</button>
+                    </div>
+                    </form> 
                 </div>
             </div>
         )

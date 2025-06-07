@@ -5,26 +5,72 @@
     position: fixed;
     backdrop-filter: blur(2px);
     z-index: 1;
+    
 }
 
 
 #menu{
     position: fixed;
     z-index: 2;
-    width: 50%;
-    height: 70%;
-    left: 25%;
-    right: 25%;
-    top: 10%;
+    width: 25%;
+    height: 96%;
+    left: 40%;
+    right: 40%;
+    bottom: 7%;
     background-color: rgba(255, 255, 255, 0.904);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 5px;
+    overflow-y: auto;
+    
+}
+
+form{
+    overflow-y: auto;
+    overflow-x:hidden;
 }
 
 
-#buttom_cancelar{
+#menu h2{
+    font-family: 'clear-sans';
+    margin-right: 80%;
+    width: 50%;
+    text-align: start;
+    margin-left: 10px;
+}
 
-    width: 8%;
-    height: 4%;
+#menu input{
+    height: 30%;
+    width: 60%;
+    display:flex;
+    margin-left: 10px;
+    font-family: 'clear-sans';
+    border-radius: 5px;
+    border: 1px solid black ;
+    
+}
 
+#menu img{
+    width: 50%;
+    height: 10%;
+    margin-top: 2%;
+}
 
+#botoes {
+
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-top: 15%;
+    gap: 90px;
+    justify-content: center;
+}
+
+#botoes button{
+
+    width: 100px;
+    font-size:medium;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    justify-content:space-around;
 }
