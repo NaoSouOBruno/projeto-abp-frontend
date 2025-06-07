@@ -5,10 +5,11 @@ import { useState } from "react"
 
 export function Add({open,setOpen}){
         
-    const [item_novo,setItem_novo] = useState({imagem: '',nome: '',codigo: '',unidade: '',quantidade: null});
+    const [item_novo,setItem_novo] = useState({imagem: '',nome: '',codigo: '',unidade: '',quantidade: ''}
+    );
 
     if (!open) return null;
-         
+        
     
     const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM")) || [];
         
@@ -28,6 +29,7 @@ export function Add({open,setOpen}){
         }else{const {name,value} = e.target; // caso não for a imagem ele armazena normalmente
         setItem_novo((antes) => ({
         ...antes,[name]: value}));}
+            
         }
 
     
@@ -37,7 +39,6 @@ export function Add({open,setOpen}){
         const novos_itens = [...DB_ITEM,item_novo];
         localStorage.setItem("DB_ITEM",JSON.stringify(novos_itens));
         setOpen(false);
-        window.location.reload(false);
         }
 
 

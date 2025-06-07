@@ -15,7 +15,6 @@ export function Estoque(){
         const dados = localStorage.getItem('DB_ITEM'); // pega os daods de local storage se tiver alguma coisa se não continua vazia
         if (dados !== null && dados !== undefined){
             setDB_ITEM(JSON.parse(dados));
-            
         }
     },[]);
 
@@ -27,22 +26,24 @@ export function Estoque(){
 
             <div id = "div_tabela">
                 <table>
-                    <tr>
-                        <th>Imagem</th>
-                        <th>Nome</th>
-                        <th>Código</th>
-                        <th>Unidade</th>
-                        <th>Quantidade</th>
-                    </tr>
-                    {DB_ITEM.map((itens) => (
+                    <tbody>    
                         <tr>
-                            <td><img src={itens.imagem}/></td>
-                            <td>{itens.nome}</td>
-                            <td>{itens.codigo}</td>
-                            <td>{itens.unidade}</td>
-                            <td>{itens.quantidade}</td>
+                            <th>Imagem</th>
+                            <th>Nome</th>
+                            <th>Código</th>
+                            <th>Unidade</th>
+                            <th>Quantidade</th>
                         </tr>
-                    ) ) } 
+                        {DB_ITEM.map((itens,index) => (
+                            <tr key={index}>
+                                <td><img src={itens.imagem}/></td>
+                                <td>{itens.nome}</td>
+                                <td>{itens.codigo}</td>
+                                <td>{itens.unidade}</td>
+                                <td>{itens.quantidade}</td>
+                            </tr>
+                        ) )} 
+                    </tbody>
                 </table>
             </div>
             <div>
