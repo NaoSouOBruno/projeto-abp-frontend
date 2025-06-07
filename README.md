@@ -17,12 +17,12 @@ DogMox é um sistema de controle de ALMOXARIFADO de um canil. O sistema permite 
 Desenvolver uma aplicação que permita:
 - 🔐 Realizar login de usuários.
 - 📋 Cadastrar perfis de cães (nome, raça, idade, foto, local).
-- 📑 Exibir e gerenciar os cães cadastrados em uma tabela.
+- 📑 Exibir e gerenciar os cães cadastrados.
 - 🔄 Atualizar o status dos cães (veterinário, pet shop ou adoção) com destaque visual.
-- 📈 Gerar estatísticas em com base nos status dos cães.
+- 📈 Gerar estatísticas com base nos status dos cães.
 - 🔎 Oferecer filtros na tabela para facilitar buscas por nome, raça ou idade.
-- ✏️ Edição do perfil do cão
-- 📦 Gerenciar o estoque permite a criação de novos itens e também a alteração na quantidade.
+- ✏️ Edição do perfil do cão.
+- 📦 Gerenciar o estoque, com criação de novos itens e alteração na quantidade.
 
 ## 🐶 Funcionalidades Principais
 
@@ -43,18 +43,18 @@ Desenvolver uma aplicação que permita:
   - ⏳ Idade
   - 🖼️ Foto
   - etc...
-- ⚙️ Ações disponíveis por linha da tabela:
+- ⚙️ Ações disponíveis na tabela:
   - 🗑️ Deletar o Card do cão
   - ✏️ Editar as informações do cão
   - ✅ Marcar como:
     - 🏥 Foi ao veterinário (com destaque visual)
     - 🛁 Foi ao pet shop (com destaque visual)
     - 🏡 Foi adotado (com destaque visual)
--📦 Tela de gerenciamento de estoque com:
-  -➕ Criação de novos itens no estoque
-  -➖ Remoção de itens existentes
-  -♻️ Modificação da quantidade dos itens e seus atributos
-  -🔍 Filtros aplicáveis
+- 📦 Tela de gerenciamento de estoque com:
+  - ➕ Criação de novos itens no estoque
+  - ➖ Remoção de itens existentes
+  - ♻️ Modificação da quantidade dos itens e seus atributos
+  - 🔍 Filtros aplicáveis
 
 ## 💻 Tecnologias utilizadas
 
