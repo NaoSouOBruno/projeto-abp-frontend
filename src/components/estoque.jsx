@@ -9,13 +9,12 @@ export function Estoque(){
 
     const [open,setOpen] = useState(false);
     const [openEdit,setOpenEdit] = useState(false);
-
-
+    const [codigoSelect,setCodigoSelect] = useState(0)
     const [DB_ITEM,setDB_ITEM] = useState([]);
 
 
     useEffect(() => {
-        const dados = localStorage.getItem('DB_ITEM'); // pega os daods de local storage se tiver alguma coisa se não continua vazia
+        const dados = localStorage.getItem('DB_ITEM'); // pega os daods de local storage se tiver alguma coisa, se não continua vazia
         if (dados !== null && dados !== undefined){
             setDB_ITEM(JSON.parse(dados));
         }
@@ -37,14 +36,14 @@ export function Estoque(){
                             <th>Unidade</th>
                             <th>Quantidade</th>
                         </tr>
-                        {DB_ITEM.map((itens,index) => (
-                            <tr key={index}>
+                        {DB_ITEM.map((itens) => (
+                            <tr key={itens.codigo}>
                                 <td><img src={itens.imagem}/></td>
                                 <td>{itens.nome}</td>
                                 <td>{itens.codigo}</td>
                                 <td>{itens.unidade}</td>
                                 <td>{itens.quantidade}</td>
-                                <td id="coluna_bottons"><button> <img src="/src/assets/estoque/editar.png" alt="editar" /></button>
+                                <td id="coluna_bottons"><button onClick={() => {setOpenEdit(true),setCodigoSelect(itens.codigo)}}> <img src="/src/assets/estoque/editar.png" alt="editar" /></button>
                                 <button><img src="/src/assets/estoque/delete.png" alt="deletar" /></button></td>
                             </tr>
                         ) )} 
@@ -55,7 +54,7 @@ export function Estoque(){
                 <button onClick={() => setOpen(true)}><img src="/src/assets/estoque/+.png" alt="add"/></button>
             </div>
             <Add open={open} setOpen={() => setOpen(false)}/>
-            <Edit openEdit={openEdit} setOpenEdit={() => setOpenEdit(false)} />   
+            <Edit openEdit={openEdit} setOpenEdit={() => setOpenEdit(false)} codigoSelect={codigoSelect} />   
           </div>
     );
 }
