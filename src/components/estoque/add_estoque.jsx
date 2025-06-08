@@ -6,7 +6,7 @@ import { useState,useEffect } from "react"
 export function Add({open,setOpen}){
      
     const [codigonumero,setCodigonumero] = useState(0); //variavel usada para o codigo do item
-    const [item_novo,setItem_novo] = useState({imagem: '',nome: '',codigo: codigonumero,unidade: '',quantidade: 0}
+    const [item_novo,setItem_novo] = useState({imagem: '',descricao: '',codigo: codigonumero,unidade: 'Unidade',quantidade: 0}
     );
     const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM")) || [];
     
@@ -72,13 +72,22 @@ export function Add({open,setOpen}){
                     <form action="">
                     <h2>Imagem:</h2>
                     <input onChange={item_construcao} type="file" name="imagem"  />
-                    <img src={item_novo.imagem ? item_novo.imagem : "/logos/logo1.png"} alt="" />
-                    <h2>Nome:</h2>
-                    <input value={item_novo.nome} onChange={item_construcao} name="nome" type="text" />
+                    <img required src={item_novo.imagem ? item_novo.imagem : "/logos/logo1.png"} alt="" />
+                    <h2>Descrição:</h2>
+                    <input required value={item_novo.descricao} onChange={item_construcao} name="descricao" type="text" />
                     <h2>Código:</h2>
-                    <input value={item_novo.codigo} onChange={item_construcao} name="codigo" type="text" disabled />
-                    <h2>Unidade:</h2>
-                    <input value={item_novo.unidade} onChange={item_construcao} name="unidade" type="text" />
+                    <input required value={item_novo.codigo} onChange={item_construcao} name="codigo" type="text" disabled />
+                    <h2>Unidade de controle:</h2>
+                    {/* <input value={item_novo.unidade} onChange={item_construcao} name="unidade" type="text" /> */}
+                    <select required value={item_novo.unidade} onChange={item_construcao} name="unidade">
+                        <option value="Unidade">Unidade</option>
+                        <option value="Pacote">Pacote</option>
+                        <option value="Caixa">Caixa</option>
+                        <option value="Fardo">Fardo</option>
+                        <option value="Saco">Saco</option>
+                        <option value="Rolo">Rolo</option>
+                        <option value="Kit">Kit</option>
+                    </select>
                     <div id="botoes">
                         <button onClick={add_item}>Criar</button> 
                         <button onClick={setOpen}>Cancelar</button>

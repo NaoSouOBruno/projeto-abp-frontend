@@ -31,15 +31,15 @@ export function Estoque(){
                     <tbody>    
                         <tr>
                             <th>Imagem</th>
-                            <th>Nome</th>
+                            <th>Descrição</th>
                             <th>Código</th>
-                            <th>Unidade</th>
+                            <th>Unidade de controle</th>
                             <th>Quantidade</th>
                         </tr>
                         {DB_ITEM.map((itens) => (
                             <tr key={itens.codigo}>
                                 <td><img src={itens.imagem}/></td>
-                                <td>{itens.nome}</td>
+                                <td>{itens.descricao}</td>
                                 <td>{itens.codigo}</td>
                                 <td>{itens.unidade}</td>
                                 <td>{itens.quantidade}</td>
