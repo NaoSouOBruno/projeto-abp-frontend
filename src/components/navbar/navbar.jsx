@@ -6,17 +6,18 @@ export function Navbar() {
 
 return (
 <nav>
-        <ul className="nav">
-          <li className="lista">
+    <ul className="nav">
+        <img className="logo" src="../public/logo.png"/>
+        <li className="lista">
             <Link to="/Estoque">Estoque</Link>
-          </li>
-          <li className="lista">
+        </li>
+        <li className="lista">
             <Link to="/Index">Cachorros</Link>
-          </li>
-          <li className="lista">
+        </li>
+        <li className="lista">
             <Link to="/Stats">Estatisticas</Link>
-          </li>
-        </ul>
+        </li>
+    </ul>
 </nav>
 
 )
