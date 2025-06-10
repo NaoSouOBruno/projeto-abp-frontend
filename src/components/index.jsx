@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import {Link} from 'react-router-dom'
 import './index.css'
 
 import { Card } from './card/card.jsx'
@@ -93,6 +93,22 @@ export function Index() {
     }
 
     return (
+        <>
+        <nav>
+        <ul className="nav">
+          <li className="lista">
+            <Link to="/Estoque">Estoque</Link>
+          </li>
+          <li className="lista">
+            <Link to="/Index">Cachorros</Link>
+          </li>
+          <li className="lista">
+            <Link to="/Stats">Estatisticas</Link>
+          </li>
+        </ul>
+      </nav>
+
+
         <div className='index'>
             <br/>
             <div className="divTabela">
@@ -191,6 +207,6 @@ export function Index() {
 
         </div>
 
-    )
+    </>)
 
 }
