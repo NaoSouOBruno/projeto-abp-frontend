@@ -8,6 +8,8 @@ const dogs = [
   { nome: "Bruno", idade: 1, local: "veterinario" },
 ];
 
+import { Navbar } from './navbar/navbar.jsx';
+
 export function Stats() {
 
   const counts = {
@@ -17,6 +19,8 @@ export function Stats() {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="index">
       <div className="stats_div" style={{ maxWidth: "320px" }}>
         <div className="stats_user">
@@ -37,5 +41,6 @@ export function Stats() {
         </div>
       </div>
     </div>
+    </>
   );
 }

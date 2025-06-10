@@ -4,7 +4,7 @@ import { Delete } from './estoque/delete_estoque';
 import { Edit } from './estoque/edit_estoque';
 import { useEffect, useState } from 'react';
 
-
+import { Navbar } from './navbar/navbar.jsx'
     
 export function Estoque(){
 
@@ -25,6 +25,8 @@ export function Estoque(){
     
 
     return(
+        <>
+        <Navbar />
           <div id = "estoque">
             <h1>Estoque</h1>
 
@@ -59,5 +61,6 @@ export function Estoque(){
             <Edit openEdit={openEdit} setOpenEdit={() => setOpenEdit(false)} codigoSelect={codigoSelect} />   
             <Delete openDelete={openDelete}  setOpenDelete={() => setOpenDelete(false)} codigoSelect={codigoSelect}  />
           </div>
+        </>
     );
 }

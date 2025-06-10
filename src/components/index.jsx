@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import './index.css'
 
 import { Card } from './card/card.jsx'
+import { Navbar } from './navbar/navbar.jsx'
 
 export function Index() {
 
@@ -94,20 +95,7 @@ export function Index() {
 
     return (
         <>
-        <nav>
-        <ul className="nav">
-          <li className="lista">
-            <Link to="/Estoque">Estoque</Link>
-          </li>
-          <li className="lista">
-            <Link to="/Index">Cachorros</Link>
-          </li>
-          <li className="lista">
-            <Link to="/Stats">Estatisticas</Link>
-          </li>
-        </ul>
-      </nav>
-
+        <Navbar />
 
         <div className='index'>
             <br/>
