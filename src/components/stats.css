@@ -1,18 +1,14 @@
-/* stats.css */
-
-.index {
+.stats {
   background-color: #faf8ff;
   font-family: 'clear-sans', Arial, sans-serif;
-  width: 90%;
+  width: 80%;
   height: 90%;
   border-radius: 20px;
 
-  /* Manter o flex para centralizar o conteúdo */
   display: flex;
   justify-content: center;
   align-items: center;
 
-  /* Manter cor do texto mais escuro para contraste */
   color: #222;
   text-align: center;
 }

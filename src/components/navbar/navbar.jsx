@@ -9,13 +9,13 @@ return (
     <ul className="nav">
         <img className="logo" src="../public/logo.png"/>
         <li className="lista">
-            <Link to="/Estoque">Estoque</Link>
+            <Link to="/Estoque"><b>ESTOQUE</b></Link>
         </li>
         <li className="lista">
-            <Link to="/Index">Cachorros</Link>
+            <Link to="/Index"><b>CACHORROS</b></Link>
         </li>
         <li className="lista">
-            <Link to="/Stats">Estatisticas</Link>
+            <Link to="/Stats"><b>ESTATÍSTICAS</b></Link>
         </li>
     </ul>
 </nav>

@@ -21,7 +21,7 @@ export function Stats() {
   return (
     <>
     <Navbar />
-    <div className="index">
+    <div className="stats">
       <div className="stats_div" style={{ maxWidth: "320px" }}>
         <div className="stats_user">
           <h2>🐶 Lista de Cães Cadastrados</h2>
