@@ -71,15 +71,15 @@
 .statusVeterinario {
     background: #ffb347;
 }
+
 .statusPetshop {
     background: #4fc3f7;
 }
+
 .statusAbrigo {
     background: #56e976;
 }
-.statusAdotado {
-    background: #db4343;
-}
+
 .statusVazio {
-    background: #ccc;
+    display: none;
 }

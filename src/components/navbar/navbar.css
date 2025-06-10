@@ -1,5 +1,5 @@
 nav {
-    width: 70%;
+    width: 100vw;
 }
 
 .nav {
@@ -17,6 +17,7 @@ nav {
     color: black;
     background-color: #faf8ff;
     height: 100px;
+    max-width: 1200px;
    
     border-radius: 0 0 20px 20px;
 }

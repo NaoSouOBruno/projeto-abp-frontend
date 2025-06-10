@@ -13,7 +13,7 @@ export function Card({
     "No Veterinário": "statusVeterinario",
     "No Petshop": "statusPetshop",
     "No Abrigo": "statusAbrigo",
-    "Adotado": "statusAdotado",
+    "Adotado": "statusVazio",
   }[status] || "statusVazio";
 
   return (

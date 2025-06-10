@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
 import './index.css'
 
 import { Card } from './card/card.jsx'
@@ -16,7 +15,7 @@ export function Index() {
             nome: 'Ringo',
             local: 'Abrigo de Animais Treviso',
             descricao: 'Esse é o Ringo, ele é muito legal e adora brincar!',
-            status: 'No Veterinário'
+            status: 'Adotado'
         },
         {
             img: '/src/assets/index/cachorro2.jpg',
@@ -34,7 +33,7 @@ export function Index() {
             nome: 'Wilsinho',
             local: 'Abrigo de Animais Siderópolis',
             descricao: 'Esse é o Wilsinho, ele é muito esperto e adora aprender novos truques!',
-            status: 'No Abrigo'
+            status: 'No Veterinário'
         },
         {
             img: '/src/assets/index/cachorro4.jpg',
@@ -58,12 +57,15 @@ export function Index() {
 
     const [filtroNome, setFiltroNome] = useState('');
 
-    const [caoDetalhe, setCaoDetalhe] = useState(null);
-
     const caesFiltrados = caes.filter(cao =>
         cao.nome.toLowerCase().includes(filtroNome.toLowerCase())
+        && cao.status !== 'Adotado'
     );
 
+    const caesAdotados = caes.filter(cao => cao.status === 'Adotado');
+
+    const [caoDetalhe, setCaoDetalhe] = useState(null);
+    
     const [caoAdd, setCaoAdd] = useState(false);
 
     const [form, setForm] = useState({
@@ -99,12 +101,13 @@ export function Index() {
 
         <div className='index'>
             <br/>
-            <div className="divTabela">
+            <div className='divTabela'> {/* tabela cachorros disponiveis */}
                 <div className='divCabecalho'>
+                    <h1 className='tituloTabela'>Cachorros Disponíveis</h1>
                     <input
-                        type="text"
-                        className="inputPesquisa"
-                        placeholder="Nome do cachorro..."
+                        type='text'
+                        className='inputPesquisa'
+                        placeholder='Nome do cachorro...'
                         value={filtroNome}
                         onChange={e => setFiltroNome(e.target.value)}
                     />
@@ -117,8 +120,11 @@ export function Index() {
 
                 
                 </div>
-                <div className="divCachorros">
-                    {caesFiltrados.map((cao) => (
+                <div className='divCachorros'>
+                    {caesFiltrados.length === 0 ? (
+                        <img src='/src/assets/index/icons/logoVazia.png' className='imgVazio' alt='Nenhum cachorro adotado.'/>
+                    ) : (
+                        caesFiltrados.map((cao) => (
                         <Card
                             key={cao.nome}
                             img={cao.img}
@@ -127,56 +133,79 @@ export function Index() {
                             status={cao.status}
                             onDetalhes={() => setCaoDetalhe(cao)}
                         />
-                    ))}
+                    )))}
+                </div>
+            </div>
+
+            <br/><br/>
+
+            <div className='divTabela'> {/* tabela cachorros adotados */}
+                <div className='divCabecalho'>
+                    <h1 className='tituloTabela'>Cachorros Adotados</h1>
+                </div>
+                <div className='divCachorros'>
+                    {caesAdotados.length === 0 ? (
+                        <img src='/src/assets/index/icons/logoVazia.png' className='imgVazio' alt='Nenhum cachorro adotado.'/>
+                    ) : (
+                    caesAdotados.map((cao) => (
+                        <Card
+                            key={cao.nome}
+                            img={cao.img}
+                            nome={cao.nome}
+                            descricao={cao.descricao}
+                            status={cao.status}
+                            onDetalhes={() => setCaoDetalhe(cao)}
+                        />
+                    )))}
                 </div>
             </div>
 
             {caoAdd && (
-                <div className="popupOverlay">
-                    <div className="popupBody">
-                        <div className="divCabecalhoPopup">
+                <div className='popupOverlay'>
+                    <div className='popupBody'>
+                        <div className='divCabecalhoPopup'>
                             <h2>Cadastrar cachorro</h2>
-                            <button className="botaoFecharPopup" onClick={() => setCaoAdd(false)}>X</button>
+                            <button className='botaoFecharPopup' onClick={() => setCaoAdd(false)}>×</button>
                         </div>
-                        <form action="" className='addCachorro' onSubmit={aoSubmit}>
+                        <form action='' className='addCachorro' onSubmit={aoSubmit}>
                             <p>Nome:</p>
-                            <input type="text" name="nome" value={form.nome} onChange={alterarForm} required />
+                            <input type='text' name='nome' value={form.nome} onChange={alterarForm} required />
                             <p>Idade:</p>
-                            <input type="text" name="idade" value={form.idade} onChange={alterarForm} required />
+                            <input type='text' name='idade' value={form.idade} onChange={alterarForm} required />
                             <p>Raça:</p>
-                            <input type="text" name="raca" value={form.raca} onChange={alterarForm} required />
+                            <input type='text' name='raca' value={form.raca} onChange={alterarForm} required />
                             <p>Local:</p>
-                            <input type="text" name="local" value={form.local} onChange={alterarForm} required />
+                            <input type='text' name='local' value={form.local} onChange={alterarForm} required />
                             <p>Descrição:</p>
-                            <input type="text" name="descricao" value={form.descricao} onChange={alterarForm} required />
+                            <input type='text' name='descricao' value={form.descricao} onChange={alterarForm} required />
                             <p>Imagem:</p>
-                            <input type="file" name="img" accept="image/*" onChange={alterarForm} />
+                            <input type='file' name='img' accept='image/*' onChange={alterarForm} />
                             <p>Status:</p>
-                            <select name="status" value={form.status} onChange={alterarForm} required>
-                                <option value="">Selecione o status</option>
-                                <option value="No Veterinário">No Veterinário</option>
-                                <option value="No Petshop">No Petshop</option>
-                                <option value="No Abrigo">No Abrigo</option>
-                                <option value="Adotado">Adotado</option>
+                            <select name='status' value={form.status} onChange={alterarForm} required>
+                                <option value=''>Selecione o status</option>
+                                <option value='No Veterinário'>No Veterinário</option>
+                                <option value='No Petshop'>No Petshop</option>
+                                <option value='No Abrigo'>No Abrigo</option>
+                                <option value='Adotado'>Adotado</option>
                             </select>
                             <br/>
                             <br/>
-                            <button type="submit">Cadastrar</button>
+                            <button type='submit'>Cadastrar</button>
                         </form>
                     </div>
                 </div>
             )}
 
             {caoDetalhe && (
-                <div className="popupOverlay">
-                    <div className="popupBody">
-                        <div className="divCabecalhoPopup">
+                <div className='popupOverlay'>
+                    <div className='popupBody'>
+                        <div className='divCabecalhoPopup'>
                             <h2>{caoDetalhe.nome}</h2>
-                            <button className="botaoFecharPopup" onClick={() => setCaoDetalhe(null)}>X</button>
+                            <button className='botaoFecharPopup' onClick={() => setCaoDetalhe(null)}>×</button>
                         </div>
-                        <div className="detalhesBody">
+                        <div className='detalhesBody'>
                             <img src={caoDetalhe.img} alt={caoDetalhe.nome}/>
-                            <div className="detalhesBodyInfo">
+                            <div className='detalhesBodyInfo'>
                                 <b>Idade:</b>
                                 <p>{caoDetalhe.idade}</p>
                                 <b>Raça:</b>

@@ -1,12 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
 .index {
   background-color: #faf8ff;
   font-family: 'clear-sans', Arial, sans-serif;
   width: 80%;
-  height: 90%;
   border-radius: 20px;
 
   color: #222;
   text-align: center;
+  padding-bottom: 50px;
 }
 
 .divTabela {
@@ -33,11 +40,15 @@
     padding: 0 50px 0 50px;
 }
 
+.tituloTabela {
+    color: #ffffff;
+}
+
 .inputPesquisa {
     background-color: #faf8ff;
     border: 1px solid #d0d0d0;
 
-    width: 70%;
+    width: 20%;
     height: 48px;
     border-radius: 8px;
 
@@ -68,6 +79,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+    min-height: 250px;
 }
 
 .popupOverlay {
@@ -113,14 +126,19 @@
 }
 
 .botaoFecharPopup {
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #7f28d1;
 
-    background: transparent;
     border: none;
     
     font-size: 24px;
     cursor: pointer;
     font-weight: bold;
+
+    height: 4vh;
+    width: 4vh;
+
+    border-radius: 50%;
 }
 
 .addCachorro {
@@ -223,7 +241,8 @@
     letter-spacing: 0.02em;
 }
 
-.divCachorros {
-    display: flex;
-    flex-wrap: wrap;
+.imgVazio {
+    object-fit: contain;
+    width: 30%;
+    max-height: 250px;
 }
