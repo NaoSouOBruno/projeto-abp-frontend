@@ -1,3 +1,5 @@
+
+
 #estoque {
     display: flex;
     align-content: start;
@@ -5,13 +7,13 @@
     flex-wrap: wrap;
     width: 80%;
     height: 90%;
-    max-height: 1000px;
     background-color: white;
     gap: 10px;
     border-radius: 20px;
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
+    padding-bottom: 1%;
 }
 
 #estoque h1{
@@ -22,18 +24,67 @@
 }
 
 
-button{
-    background-color: rgba(255, 255, 255, 0);
-    width: 12%;
-    border: 0px;
+#menu_aux{
+
+    display: flex;
+    justify-content: center;
+    
+    width: 30%;
+  
 
 }
 
-#estoque button img{
+
+#botao_add{
+    width: 12%;
+    height: auto;
+    border: 2px solid;
+    padding: 0px;
+    border-radius: 10px;
+}
+
+#botao_add :hover{
+   
+}
+
+
+#botao_add img{
+    width: 90%;
+    height: auto;
+}
+
+#botao_gen{
+    margin: 5%;
+    width: 30%;
+    height: auto;
+    padding: 0px;
+    border-radius: 10px;
+
+}
+
+#botao_gen:hover{
+
+    border-radius: 0px; 
+    border: 0px;
     
+}
+
+#botao_gen button img{
+    object-fit: cover;
     width: 100%;
     height: auto;
 }
+
+
+#coluna_bottons img:hover{ 
+    box-shadow: rgba(50, 50, 93, 0.829) 0px 13px 27px -5px, rgba(0, 0, 0, 0.822) 0px 8px 16px -8px;
+    background-color: rgb(113, 76, 201);
+    border-radius: 3px;
+
+}
+
+
+
 
 #estoque button:hover{
     cursor: pointer;
@@ -43,7 +94,6 @@ button{
     display: flex;
     width: 100%;
     height: 80%;
-    overflow: hidden;
     justify-content: center;
     align-content: center;
     overflow-y: auto;
@@ -54,11 +104,12 @@ button{
 
 table{
     font-family: 'clear-sans';
+    font-size: large;
     background-color:rgba(220, 221, 236, 0.767);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     width: 90%;
     height: 10%;
-    max-height: 90%;
+    
 }
 
 table tr:nth-child(odd) {
@@ -72,14 +123,6 @@ table tr:nth-child(even) {
     width: 7%;
 }
 
-#coluna_bottons button{
-
-    margin: 5%;
-    width: 30%;
-    height: auto;
-    padding: 0%;
-    border-radius: 10px;  
-}
 
 #coluna_bottons img{   
     width: 100%;
@@ -87,17 +130,7 @@ table tr:nth-child(even) {
     object-fit: cover;
 }
 
-#coluna_bottons img:hover{ 
-    box-shadow: rgba(50, 50, 93, 0.829) 0px 13px 27px -5px, rgba(0, 0, 0, 0.822) 0px 8px 16px -8px;
-    background-color: rgb(113, 76, 201);
-    border-radius: 3px;
-}
 
-img{
-    object-fit: cover;
-    width: 90px;
-    height: auto;
-}
 
 td:hover {
     background-color: rgba(255, 255, 255, 0.658);

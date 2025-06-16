@@ -47,15 +47,15 @@ export function Estoque(){
                                 <td>{itens.codigo}</td>
                                 <td>{itens.unidade}</td>
                                 <td>{itens.quantidade}</td>
-                                <td id="coluna_bottons"><button onClick={() => {setOpenEdit(true),setCodigoSelect(itens.codigo)}}> <img src="/src/assets/estoque/editar.png" alt="editar" /></button>
-                                <button onClick={() => {setCodigoSelect(itens.codigo),setOpenDelete(true)}}><img src="/src/assets/estoque/delete.png" alt="deletar" /></button></td>
+                                <td id="coluna_bottons"><button id='botao_gen' onClick={() => {setOpenEdit(true),setCodigoSelect(itens.codigo)}}> <img src="/src/assets/estoque/editar.png" alt="editar" /></button>
+                                <button id='botao_gen' onClick={() => {setCodigoSelect(itens.codigo),setOpenDelete(true)}}><img src="/src/assets/estoque/delete.png" alt="deletar" /></button></td>
                             </tr>
                         ) )} 
                     </tbody>
                 </table>
             </div>
-            <div>
-                <button onClick={() => setOpen(true)}><img src="/src/assets/estoque/+.png" alt="add"/></button>
+            <div id='menu_aux'>
+                <button id='botao_add' onClick={() => setOpen(true)}><img src="/src/assets/estoque/+.png" alt="add"/></button>
             </div>
             <Add open={open} setOpen={() => setOpen(false)}/>
             <Edit openEdit={openEdit} setOpenEdit={() => setOpenEdit(false)} codigoSelect={codigoSelect} />   
