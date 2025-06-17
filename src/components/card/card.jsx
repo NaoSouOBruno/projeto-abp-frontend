@@ -6,6 +6,8 @@ export function Card({
   descricao,
   status,
   onDetalhes,
+  onEditar,
+  onExcluir,
   children,
 }) {
 
@@ -26,6 +28,18 @@ export function Card({
           alt="cachorro"
         />
       ) : null}
+
+      <img
+        className='btnEditar'
+        src='https://img.icons8.com/?size=100&id=59856&format=png&color=000000'
+        onClick={onEditar}
+      />
+
+      <img
+        className='btnExcluir'
+        src='https://img.icons8.com/?size=100&id=68064&format=png&color=A42929'
+        onClick={onExcluir}
+      />
 
       <div className="cardBody">
 

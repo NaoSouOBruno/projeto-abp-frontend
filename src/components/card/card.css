@@ -83,3 +83,30 @@
 .statusVazio {
     display: none;
 }
+
+
+.btnEditar, .btnExcluir {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+.btnExcluir {
+    top: 52px;
+}
+
+.card:hover .btnEditar {
+    display: block;
+}
+
+.card:hover .btnExcluir {
+    display: block;
+}
+

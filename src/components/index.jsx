@@ -64,9 +64,10 @@ export function Index() {
 
     const caesAdotados = caes.filter(cao => cao.status === 'Adotado');
 
-    const [caoDetalhe, setCaoDetalhe] = useState(null);
-    
     const [caoAdd, setCaoAdd] = useState(false);
+    const [caoDetalhe, setCaoDetalhe] = useState(null);
+    const [caoEditar, setCaoEditar] = useState(null);
+    const [caoExcluir, setCaoExcluir] = useState(null);
 
     const [form, setForm] = useState({
         nome: '',
@@ -132,6 +133,8 @@ export function Index() {
                             descricao={cao.descricao}
                             status={cao.status}
                             onDetalhes={() => setCaoDetalhe(cao)}
+                            onEditar={() => setCaoEditar(cao)}
+                            onExcluir={() => setCaoExcluir(cao)}
                         />
                     )))}
                 </div>
@@ -155,6 +158,8 @@ export function Index() {
                             descricao={cao.descricao}
                             status={cao.status}
                             onDetalhes={() => setCaoDetalhe(cao)}
+                            onEditar={() => setCaoEditar(cao)}
+                            onExcluir={() => setCaoExcluir(cao)}
                         />
                     )))}
                 </div>
@@ -216,6 +221,33 @@ export function Index() {
                                 <p>{caoDetalhe.descricao}</p>
                                 <b>Status:</b>
                                 <p>{caoDetalhe.status}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {caoEditar && (
+                <div className='popupOverlay'>
+                    <div className='popupBody'>
+                        <div className='divCabecalhoPopup'>
+                            <h2>Editar informações | {caoEditar.nome}</h2>
+                            <button className='botaoFecharPopup' onClick={() => setCaoEditar(null)}>×</button>
+                        </div>
+                        <div className='detalhesBody'>
+                            <img src={caoEditar.img} alt={caoEditar.nome}/>
+                            <div className='detalhesBodyInfo'>
+                                <b>Idade:</b>
+                                <p>{caoEditar.idade}</p>
+                                <b>Raça:</b>
+                                <p>{caoEditar.raca}</p>
+                                <b>Local:</b>
+                                <p>{caoEditar.local}</p>
+                                <b>Descrição:</b>
+                                <p>{caoEditar.descricao}</p>
+                                <b>Status:</b>
+                                <p>{caoEditar.status}</p>
+                                <button className='btnEditarIndex' onClick={() => alert('Funcionalidade de edição ainda não implementada.')}>Editar</button>
                             </div>
                         </div>
                     </div>
