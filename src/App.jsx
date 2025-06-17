@@ -10,24 +10,22 @@ import { Stats } from "./components/stats.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login/>
+    element: <Login />,
   },
   {
     path: "/index",
-    element: <Index/>
+    element: <Index />,
   },
   {
     path: "/estoque",
-    element: <Estoque/>
+    element: <Estoque />,
   },
   {
     path: "/stats",
-    element: <Stats/>
-  }
+    element: <Stats />,
+  },
 ]);
-
 
 export default function App() {
   return <RouterProvider router={router} />;
 }
-

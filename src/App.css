@@ -7,3 +7,7 @@
     font-family: 'clear-sans';
     src: url('./fonts/clear-sans/ClearSans-Regular.woff') format('woff');
 }
+
+body {
+    min-height: 100dvh;
+}
