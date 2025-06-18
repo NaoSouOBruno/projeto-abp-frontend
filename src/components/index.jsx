@@ -211,7 +211,14 @@ export function Index() {
                             <p>Descrição:</p>
                             <textarea name='descricao' value={form.descricao} rows={4} onChange={alterarFormAdicionar}/>
                             <p>Imagem:</p>
+                            <div className='divImagem'>
+                            {form.img ? (
+                                <img src={form.img} alt='Imagem do cachorro'/>
+                            ) : (
+                                <img src='/src/assets/index/icons/imagemVazia.png' alt='Imagem do cachorro'/>
+                            )}
                             <input type='file' name='img' accept='image/*' onChange={alterarFormAdicionar} />
+                            </div>
                             <p>Status:</p>
                             <select name='status' value={form.status} onChange={alterarFormAdicionar} required>
                                 <option value=''>Selecione o status</option>
@@ -279,7 +286,10 @@ export function Index() {
                             <p>Descrição:</p>
                             <textarea name='descricao' value={caoEditar.descricao} rows={4} onChange={alterarFormEditar}/>
                             <p>Imagem:</p>
+                            <div className='divImagem'>
+                            <img src={caoEditar.img}/>
                             <input type='file' name='img' accept='image/*' onChange={alterarFormEditar} />
+                            </div>
                             <p>Status:</p>
                             <select name='status' value={caoEditar.status} onChange={alterarFormEditar} required>
                                 <option value=''>Selecione o status</option>

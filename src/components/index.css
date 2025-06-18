@@ -178,6 +178,8 @@ body {
 }
 
 .addCachorro input[type="file"] {
+    font-size: 12px;
+    width: 720px;
     background: #fff;
     padding: 7px;
 }
@@ -291,4 +293,18 @@ body {
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
+}
+
+.divImagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.divImagem img {
+    max-width: 100px;
+    min-height: 100px;
+    object-fit: cover;
+    border-radius: 20px;
 }
