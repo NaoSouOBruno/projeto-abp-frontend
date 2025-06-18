@@ -9,6 +9,7 @@ export function Index() {
     const [caes, setCaes] = useState([
         // alguns cachorrinhos placeholder!
         {
+            id: 1,
             img: '/src/assets/index/cachorro1.jpeg',
             idade: '2 anos',
             raca: 'Pastor Alemão',
@@ -18,6 +19,7 @@ export function Index() {
             status: 'Adotado'
         },
         {
+            id: 2,
             img: '/src/assets/index/cachorro2.jpg',
             idade: '1 ano',
             raca: 'Chihuahua',
@@ -27,6 +29,7 @@ export function Index() {
             status: 'No Petshop'
         },
         {
+            id: 3,
             img: '/src/assets/index/cachorro3.png',
             idade: '3 meses',
             raca: 'Vira-lata',
@@ -36,6 +39,7 @@ export function Index() {
             status: 'No Veterinário'
         },
         {
+            id: 4,
             img: '/src/assets/index/cachorro4.jpg',
             idade: '33 anos',
             raca: 'Developer',
@@ -45,6 +49,7 @@ export function Index() {
             status: 'Adotado'
         },
         {
+            id: 5,
             img: '/src/assets/index/cachorro5.jpg',
             idade: '19 anos',
             raca: 'Humano',
@@ -91,7 +96,7 @@ export function Index() {
     function aoSubmitAdicionar(e) {
         e.preventDefault();
 
-        setCaes([...caes, form]);                                                                       // adiciona cachorro novo no fim do array
+        setCaes([...caes, { ...form, id: Date.now() }]);                                                // adiciona cachorro novo no fim do array com id novo baseado no horario
         setCaoAdd(false);                                                                               // fecha popup
         setForm({nome: '', idade: '', raca: '', local: '', descricao: '', img: '', status: ''});        // limpa form
     }
@@ -107,7 +112,7 @@ export function Index() {
 
     function aoSubmitEditar(e) {
         e.preventDefault();
-        setCaes(caes.map(cao => cao.nome === caoEditar.nome ? caoEditar : cao));                        // atualiza o cachorro editado no array
+        setCaes(caes.map(cao => cao.id === caoEditar.id ? caoEditar : cao));                        // atualiza o cachorro editado no array
         setCaoEditar(null);                                                                             // fecha popup de edição
     }
 
@@ -144,7 +149,7 @@ export function Index() {
                     ) : (
                         caesFiltrados.map((cao) => (
                         <Card
-                            key={cao.nome}
+                            key={cao.id}
                             img={cao.img}
                             nome={cao.nome}
                             descricao={cao.descricao}
@@ -169,7 +174,7 @@ export function Index() {
                     ) : (
                         caesAdotados.map((cao) => (
                         <Card
-                            key={cao.nome}
+                            key={cao.id}
                             img={cao.img}
                             nome={cao.nome}
                             descricao={cao.descricao}
@@ -295,7 +300,7 @@ export function Index() {
                         <div className='popupExcluirBotoes'>
                         <button className='btnCancelar' onClick={() => setCaoExcluir(null)}>Cancelar</button>
                         <button className='btnExcluirPopup' onClick={() => {
-                            setCaes(caes.filter(cao => cao.nome !== caoExcluir.nome));
+                            setCaes(caes.filter(cao => cao.id !== caoExcluir.id));
                             setCaoExcluir(null);
                         }}>Excluir</button>
                         
