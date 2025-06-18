@@ -82,7 +82,7 @@ export function Index() {
     function alterarFormAdicionar(e) {
         const { name, value, files } = e.target;
         if (name === 'img' && files.length > 0) {                                                       // verifica campo imagem
-            setForm({ ...form, img: URL.createObjectURL(files[0]) });                                   // cria url temporaria
+            setForm({ ...form, img: URL.createObjectURL(files[0])});                                   // cria url temporaria
         } else {
             setForm({ ...form, [name]: value });                                                        // atualiza o estado do form
         }
@@ -110,6 +110,8 @@ export function Index() {
         setCaes(caes.map(cao => cao.nome === caoEditar.nome ? caoEditar : cao));                        // atualiza o cachorro editado no array
         setCaoEditar(null);                                                                             // fecha popup de edição
     }
+
+
 
     return (
         <>
@@ -165,7 +167,7 @@ export function Index() {
                     {caesAdotados.length === 0 ? (
                         <img src='/src/assets/index/icons/logoVazia.png' className='imgVazio' alt='Nenhum cachorro adotado.'/>
                     ) : (
-                    caesAdotados.map((cao) => (
+                        caesAdotados.map((cao) => (
                         <Card
                             key={cao.nome}
                             img={cao.img}
@@ -197,7 +199,7 @@ export function Index() {
                             <p>Local:</p>
                             <input type='text' name='local' value={form.local} onChange={alterarFormAdicionar} required />
                             <p>Descrição:</p>
-                            <input type='text' name='descricao' value={form.descricao} onChange={alterarFormAdicionar} required />
+                            <input type='text' name='descricao' value={form.descricao} onChange={alterarFormAdicionar}/>
                             <p>Imagem:</p>
                             <input type='file' name='img' accept='image/*' onChange={alterarFormAdicionar} />
                             <p>Status:</p>
@@ -224,7 +226,9 @@ export function Index() {
                             <button className='botaoFecharPopup' onClick={() => setCaoDetalhe(null)}>×</button>
                         </div>
                         <div className='detalhesBody'>
-                            <img src={caoDetalhe.img} alt={caoDetalhe.nome}/>
+                            {caoDetalhe.img ? (
+                                <img src={caoDetalhe.img} alt={caoDetalhe.nome}/>)
+                                : <img src='/src/assets/index/icons/imagemVazia.png' alt='Imagem do cachorro' />}
                             <div className='detalhesBodyInfo'>
                                 <b>Idade:</b>
                                 <p>{caoDetalhe.idade}</p>
@@ -246,7 +250,7 @@ export function Index() {
                 <div className='popupOverlay'>
                     <div className='popupBody'>
                         <div className='divCabecalhoPopup'>
-                            <h2>Editar informações | {caoEditar.nome}</h2>
+                            <h2>Editar informações</h2>
                             <button className='botaoFecharPopup' onClick={() => setCaoEditar(null)}>×</button>
                         </div>
                         <form action='' className='addCachorro' onSubmit={aoSubmitEditar}>
@@ -259,7 +263,7 @@ export function Index() {
                             <p>Local:</p>
                             <input type='text' name='local' value={caoEditar.local} onChange={alterarFormEditar} required />
                             <p>Descrição:</p>
-                            <input type='text' name='descricao' value={caoEditar.descricao} onChange={alterarFormEditar} required />
+                            <input type='text' name='descricao' value={caoEditar.descricao} onChange={alterarFormEditar}/>
                             <p>Imagem:</p>
                             <input type='file' name='img' accept='image/*' onChange={alterarFormEditar} />
                             <p>Status:</p>
@@ -272,8 +276,30 @@ export function Index() {
                             </select>
                             <br/>
                             <br/>
-                            <button type='submit'>Cadastrar</button>
+                            <button type='submit'>Alterar</button>
                         </form>
+                    </div>
+                </div>
+            )}
+
+            {caoExcluir && (
+                <div className='popupOverlay'>
+                    <div className='popupBody'>
+                        <div className='divCabecalhoPopup'>
+                            <h2>{caoExcluir.nome}</h2>
+                        </div>
+                        <div className='popupExcluirConteudo'>
+                        <p><b>Tem certeza que deseja excluir esse cãozinho?</b><br/>
+                        Essa ação não pode ser desfeita.</p>
+                        </div>
+                        <div className='popupExcluirBotoes'>
+                        <button className='btnCancelar' onClick={() => setCaoExcluir(null)}>Cancelar</button>
+                        <button className='btnExcluirPopup' onClick={() => {
+                            setCaes(caes.filter(cao => cao.nome !== caoExcluir.nome));
+                            setCaoExcluir(null);
+                        }}>Excluir</button>
+                        
+                        </div>
                     </div>
                 </div>
             )}
@@ -284,19 +310,4 @@ export function Index() {
 
 }
 
-/* <div className='detalhesBody'>
-                            <img src={caoEditar.img} alt={caoEditar.nome}/>
-                            <div className='detalhesBodyInfo'>
-                                <b>Idade:</b>
-                                <p>{caoEditar.idade}</p>
-                                <b>Raça:</b>
-                                <p>{caoEditar.raca}</p>
-                                <b>Local:</b>
-                                <p>{caoEditar.local}</p>
-                                <b>Descrição:</b>
-                                <p>{caoEditar.descricao}</p>
-                                <b>Status:</b>
-                                <p>{caoEditar.status}</p>
-                                <button className='btnEditarIndex' onClick={() => alert('Funcionalidade de edição ainda não implementada.')}>Editar</button>
-                            </div>
-                        </div> */
+
