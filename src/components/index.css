@@ -159,7 +159,11 @@ body {
     text-align: left;
 }
 
-.addCachorro input[type="text"], .addCachorro input[type="file"] {
+.addCachorro input[type="text"], .addCachorro input[type="file"], .addCachorro textarea {
+    font-family: 'clear-sans';
+    max-width: 100%;
+    resize: none;
+
     background: #faf8ff;
     border: 1px solid #d0d0d0;
 

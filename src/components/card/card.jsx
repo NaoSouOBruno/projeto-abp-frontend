@@ -51,7 +51,7 @@ export function Card({
 
         <h5 className="cardTitle">{nome}</h5>
 
-        {descricao ? <p className="cardText">{descricao}</p> : null}
+        {descricao ? <p>{descricao}</p> : <p className="cardTextCinza">Sem descrição.</p>}
 
         <span className={`cardStatus ${statusClass}`} title={status}/>
 

@@ -7,7 +7,7 @@ import { Navbar } from './navbar/navbar.jsx'
 export function Index() {
 
     const [caes, setCaes] = useState([
-        // alguns cachorrinhos placeholder!
+        // alguns cachorrinhos só pra placeholder!
         {
             id: 1,
             img: '/src/assets/index/cachorro1.jpeg',
@@ -60,6 +60,7 @@ export function Index() {
         }
     ]);
 
+    // sistema de filtro por nome
     const [filtroNome, setFiltroNome] = useState('');
 
     const caesFiltrados = caes.filter(cao =>
@@ -67,13 +68,16 @@ export function Index() {
         && cao.status !== 'Adotado'
     );
 
+    // sistema tabela para adotados
     const caesAdotados = caes.filter(cao => cao.status === 'Adotado');
 
+    // funcoes dos popups
     const [caoAdd, setCaoAdd] = useState(false);
     const [caoDetalhe, setCaoDetalhe] = useState(null);
     const [caoEditar, setCaoEditar] = useState(null);
     const [caoExcluir, setCaoExcluir] = useState(null);
 
+    // add
     const [form, setForm] = useState({
         nome: '',
         idade: '',
@@ -87,7 +91,7 @@ export function Index() {
     function alterarFormAdicionar(e) {
         const { name, value, files } = e.target;
         if (name === 'img' && files.length > 0) {                                                       // verifica campo imagem
-            setForm({ ...form, img: URL.createObjectURL(files[0])});                                   // cria url temporaria
+            setForm({ ...form, img: URL.createObjectURL(files[0])});                                    // cria url temporaria
         } else {
             setForm({ ...form, [name]: value });                                                        // atualiza o estado do form
         }
@@ -101,6 +105,7 @@ export function Index() {
         setForm({nome: '', idade: '', raca: '', local: '', descricao: '', img: '', status: ''});        // limpa form
     }
 
+    // editar
     function alterarFormEditar(e) {
         const { name, value, files } = e.target;
         if (name === 'img' && files.length > 0) {                                                       // verifica campo imagem
@@ -204,7 +209,7 @@ export function Index() {
                             <p>Local:</p>
                             <input type='text' name='local' value={form.local} onChange={alterarFormAdicionar} required />
                             <p>Descrição:</p>
-                            <input type='text' name='descricao' value={form.descricao} onChange={alterarFormAdicionar}/>
+                            <textarea name='descricao' value={form.descricao} rows={4} onChange={alterarFormAdicionar}/>
                             <p>Imagem:</p>
                             <input type='file' name='img' accept='image/*' onChange={alterarFormAdicionar} />
                             <p>Status:</p>
@@ -241,8 +246,12 @@ export function Index() {
                                 <p>{caoDetalhe.raca}</p>
                                 <b>Local:</b>
                                 <p>{caoDetalhe.local}</p>
-                                <b>Descrição:</b>
-                                <p>{caoDetalhe.descricao}</p>
+                                {caoDetalhe.descricao ? (
+                                    <>
+                                        <b>Descrição:</b>
+                                        <p>{caoDetalhe.descricao}</p>
+                                    </>
+                                ) : null}
                                 <b>Status:</b>
                                 <p>{caoDetalhe.status}</p>
                             </div>
@@ -268,7 +277,7 @@ export function Index() {
                             <p>Local:</p>
                             <input type='text' name='local' value={caoEditar.local} onChange={alterarFormEditar} required />
                             <p>Descrição:</p>
-                            <input type='text' name='descricao' value={caoEditar.descricao} onChange={alterarFormEditar}/>
+                            <textarea name='descricao' value={caoEditar.descricao} rows={4} onChange={alterarFormEditar}/>
                             <p>Imagem:</p>
                             <input type='file' name='img' accept='image/*' onChange={alterarFormEditar} />
                             <p>Status:</p>
