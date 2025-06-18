@@ -79,7 +79,7 @@ export function Index() {
         status: ''
     });
 
-    function alterarForm(e) {
+    function alterarFormAdicionar(e) {
         const { name, value, files } = e.target;
         if (name === 'img' && files.length > 0) {                                                       // verifica campo imagem
             setForm({ ...form, img: URL.createObjectURL(files[0]) });                                   // cria url temporaria
@@ -88,12 +88,27 @@ export function Index() {
         }
     }
 
-    function aoSubmit(e) {
+    function aoSubmitAdicionar(e) {
         e.preventDefault();
 
         setCaes([...caes, form]);                                                                       // adiciona cachorro novo no fim do array
         setCaoAdd(false);                                                                               // fecha popup
         setForm({nome: '', idade: '', raca: '', local: '', descricao: '', img: '', status: ''});        // limpa form
+    }
+
+    function alterarFormEditar(e) {
+        const { name, value, files } = e.target;
+        if (name === 'img' && files.length > 0) {                                                       // verifica campo imagem
+            setCaoEditar({ ...caoEditar, img: URL.createObjectURL(files[0]) });                         // cria url temporaria
+        } else {
+            setCaoEditar({ ...caoEditar, [name]: value });                                              // atualiza o estado do cachorro a ser editado
+        }
+    }
+
+    function aoSubmitEditar(e) {
+        e.preventDefault();
+        setCaes(caes.map(cao => cao.nome === caoEditar.nome ? caoEditar : cao));                        // atualiza o cachorro editado no array
+        setCaoEditar(null);                                                                             // fecha popup de edição
     }
 
     return (
@@ -172,21 +187,21 @@ export function Index() {
                             <h2>Cadastrar cachorro</h2>
                             <button className='botaoFecharPopup' onClick={() => setCaoAdd(false)}>×</button>
                         </div>
-                        <form action='' className='addCachorro' onSubmit={aoSubmit}>
+                        <form action='' className='addCachorro' onSubmit={aoSubmitAdicionar}>
                             <p>Nome:</p>
-                            <input type='text' name='nome' value={form.nome} onChange={alterarForm} required />
+                            <input type='text' name='nome' value={form.nome} onChange={alterarFormAdicionar} required />
                             <p>Idade:</p>
-                            <input type='text' name='idade' value={form.idade} onChange={alterarForm} required />
+                            <input type='text' name='idade' value={form.idade} onChange={alterarFormAdicionar} required />
                             <p>Raça:</p>
-                            <input type='text' name='raca' value={form.raca} onChange={alterarForm} required />
+                            <input type='text' name='raca' value={form.raca} onChange={alterarFormAdicionar} required />
                             <p>Local:</p>
-                            <input type='text' name='local' value={form.local} onChange={alterarForm} required />
+                            <input type='text' name='local' value={form.local} onChange={alterarFormAdicionar} required />
                             <p>Descrição:</p>
-                            <input type='text' name='descricao' value={form.descricao} onChange={alterarForm} required />
+                            <input type='text' name='descricao' value={form.descricao} onChange={alterarFormAdicionar} required />
                             <p>Imagem:</p>
-                            <input type='file' name='img' accept='image/*' onChange={alterarForm} />
+                            <input type='file' name='img' accept='image/*' onChange={alterarFormAdicionar} />
                             <p>Status:</p>
-                            <select name='status' value={form.status} onChange={alterarForm} required>
+                            <select name='status' value={form.status} onChange={alterarFormAdicionar} required>
                                 <option value=''>Selecione o status</option>
                                 <option value='No Veterinário'>No Veterinário</option>
                                 <option value='No Petshop'>No Petshop</option>
@@ -234,7 +249,42 @@ export function Index() {
                             <h2>Editar informações | {caoEditar.nome}</h2>
                             <button className='botaoFecharPopup' onClick={() => setCaoEditar(null)}>×</button>
                         </div>
-                        <div className='detalhesBody'>
+                        <form action='' className='addCachorro' onSubmit={aoSubmitEditar}>
+                            <p>Nome:</p>
+                            <input type='text' name='nome' value={caoEditar.nome} onChange={alterarFormEditar} disabled />
+                            <p>Idade:</p>
+                            <input type='text' name='idade' value={caoEditar.idade} onChange={alterarFormEditar} required />
+                            <p>Raça:</p>
+                            <input type='text' name='raca' value={caoEditar.raca} onChange={alterarFormEditar} required />
+                            <p>Local:</p>
+                            <input type='text' name='local' value={caoEditar.local} onChange={alterarFormEditar} required />
+                            <p>Descrição:</p>
+                            <input type='text' name='descricao' value={caoEditar.descricao} onChange={alterarFormEditar} required />
+                            <p>Imagem:</p>
+                            <input type='file' name='img' accept='image/*' onChange={alterarFormEditar} />
+                            <p>Status:</p>
+                            <select name='status' value={caoEditar.status} onChange={alterarFormEditar} required>
+                                <option value=''>Selecione o status</option>
+                                <option value='No Veterinário'>No Veterinário</option>
+                                <option value='No Petshop'>No Petshop</option>
+                                <option value='No Abrigo'>No Abrigo</option>
+                                <option value='Adotado'>Adotado</option>
+                            </select>
+                            <br/>
+                            <br/>
+                            <button type='submit'>Cadastrar</button>
+                        </form>
+                    </div>
+                </div>
+            )}
+
+        </div>
+
+    </>)
+
+}
+
+/* <div className='detalhesBody'>
                             <img src={caoEditar.img} alt={caoEditar.nome}/>
                             <div className='detalhesBodyInfo'>
                                 <b>Idade:</b>
@@ -249,13 +299,4 @@ export function Index() {
                                 <p>{caoEditar.status}</p>
                                 <button className='btnEditarIndex' onClick={() => alert('Funcionalidade de edição ainda não implementada.')}>Editar</button>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-
-        </div>
-
-    </>)
-
-}
+                        </div> */
