@@ -63,9 +63,18 @@ export function Index() {
     // sistema de filtro por nome
     const [filtroNome, setFiltroNome] = useState('');
 
-    const caesFiltrados = caes.filter(cao =>
+    const caesFiltradosGeral = caes.filter(cao =>
         cao.nome.toLowerCase().includes(filtroNome.toLowerCase())
         && cao.status !== 'Adotado'
+    );
+
+    // sistema de filtro por status
+    const [filtroStatus, setFiltroStatus] = useState('');
+    
+    const caesFiltrados = caes.filter(cao =>
+        cao.nome.toLowerCase().includes(filtroNome.toLowerCase()) &&
+        cao.status !== 'Adotado' &&
+        (filtroStatus === '' || cao.status === filtroStatus)
     );
 
     // sistema tabela para adotados
@@ -132,6 +141,14 @@ export function Index() {
             <div className='divTabela'> {/* tabela cachorros disponiveis */}
                 <div className='divCabecalho'>
                     <h1 className='tituloTabela'>Cachorros Disponíveis</h1>
+
+                    <select name='filtroGeral' value={null} onChange={null}>
+                                <option value=''>Selecione o filtro</option>
+                                <option value='nome'>Nome</option>
+                                <option value='raca'>Raça</option>
+                                <option value='idade'>Idade</option>
+                    </select>
+                    
                     <input
                         type='text'
                         className='inputPesquisa'
@@ -139,6 +156,21 @@ export function Index() {
                         value={filtroNome}
                         onChange={e => setFiltroNome(e.target.value)}
                     />
+
+                    <div>
+                    <select
+                        className='filtroStatus'
+                        name='filtroStatus'
+                        value={filtroStatus}
+                        onChange={e => setFiltroStatus(e.target.value)}>
+                                <option value=''></option>
+                                <option value='No Abrigo'>No Abrigo</option>
+                                <option value='No Veterinário'>No Veterinário</option>
+                                <option value='No Petshop'>No Petshop</option>
+                    </select>
+                    </div>
+
+
                     <button
                         className='btnAdicionar'
                         onClick={() => setCaoAdd(true)}

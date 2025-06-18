@@ -308,3 +308,14 @@ body {
     object-fit: cover;
     border-radius: 20px;
 }
+
+.filtroStatus {
+    width: 36px;
+    height: 36px;
+    
+    border-radius: 50%;
+}
+
+.statusAbrigo {
+    background: #56e976;
+}
