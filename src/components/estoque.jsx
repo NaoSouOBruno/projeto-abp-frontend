@@ -31,8 +31,8 @@ export function Estoque(){
             <h1>Estoque</h1>
 
             <div id = "div_tabela">
-                <table>
-                    <tbody>    
+                <table id="tabela_estoque">
+                    <tbody >    
                         <tr>
                             <th>Imagem</th>
                             <th>Descrição</th>
@@ -42,13 +42,15 @@ export function Estoque(){
                         </tr>
                         {DB_ITEM.map((itens) => (
                             <tr key={itens.codigo}>
-                                <td><img src={itens.imagem}/></td>
+                                <td id="coluna_img"><img src={itens.imagem}/></td>
                                 <td>{itens.descricao}</td>
-                                <td>{itens.codigo}</td>
-                                <td>{itens.unidade}</td>
-                                <td>{itens.quantidade}</td>
+                                <td width={"10%"}>{itens.codigo}</td>
+                                <td width={"10%"} >{itens.unidade}</td>
+                                <td width={"10%"} >{itens.quantidade}</td>
                                 <td id="coluna_bottons"><button id='botao_gen' onClick={() => {setOpenEdit(true),setCodigoSelect(itens.codigo)}}> <img src="/src/assets/estoque/editar.png" alt="editar" /></button>
-                                <button id='botao_gen' onClick={() => {setCodigoSelect(itens.codigo),setOpenDelete(true)}}><img src="/src/assets/estoque/delete.png" alt="deletar" /></button></td>
+                                <button id='botao_gen' onClick={() => {setCodigoSelect(itens.codigo),setOpenDelete(true)}}><img src="/src/assets/estoque/delete.png" alt="deletar" /></button>
+                                </td>
+                                
                             </tr>
                         ) )} 
                     </tbody>

@@ -93,7 +93,7 @@
 #div_tabela{
     display: flex;
     width: 100%;
-    height: 80%;
+    height: 70%;
     justify-content: center;
     align-content: center;
     overflow-y: auto;
@@ -102,9 +102,9 @@
     white-space: normal;
 }
 
-table{
+#tabela_estoque{
     font-family: 'clear-sans';
-    font-size: large;
+    font-size: 100%;
     background-color:rgba(220, 221, 236, 0.767);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     width: 90%;
@@ -112,10 +112,22 @@ table{
     
 }
 
-table tr:nth-child(odd) {
-  background-color: #f2f2f2;
+#coluna_img{
+    width: 12%;
 }
-table tr:nth-child(even) {
+
+
+#coluna_img img{
+    width: 60%;
+    height: auto;
+}
+
+
+#tabela_estoque tr:nth-child(odd) {
+  background-color: #f2f2f2;
+  
+}
+#tabela_estoque tr:nth-child(even) {
   background-color: #ffffff;
 }
 
@@ -132,12 +144,12 @@ table tr:nth-child(even) {
 
 
 
-td:hover {
+#tabela_estoque td:hover {
     background-color: rgba(255, 255, 255, 0.658);
     box-shadow: rgb(50, 50, 93) 0px 13px 27px -5px, rgb(0, 0, 0) 0px 8px 16px -8px;
 }
 
-td{
+#tabela_estoque td{
     max-width: 200px;
 }
 
