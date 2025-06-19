@@ -151,6 +151,7 @@ export function Index() {
                         <option value='nome'>Nome</option>
                         <option value='raca'>Raça</option>
                         <option value='idade'>Idade</option>
+                        <option value='local'>Local</option>
                     </select>
                     
                     <input
