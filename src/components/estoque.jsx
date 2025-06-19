@@ -15,7 +15,10 @@ export function Estoque(){
     const [openVisualizar,setOpenVisualizar] = useState(false)
     const [codigoSelect,setCodigoSelect] = useState(0)
     const [DB_ITEM,setDB_ITEM] = useState([]);
-
+    const [filtroNome,setFiltroNome] = useState("")
+    const [filtroCodigo,setFiltroCodigo] = useState("")
+    const [filtroQuantidade,setFiltroQuantidade] = useState("")
+    const [filtroUnidade,setFiltroUnidade] = useState("")
 
     useEffect(() => {
         const dados = localStorage.getItem('DB_ITEM'); // pega os daods de local storage se tiver alguma coisa, se não continua vazia
@@ -26,12 +29,42 @@ export function Estoque(){
 
     
 
+    //filtro
+
+    const estoque_filtro = DB_ITEM.filter((item) =>
+        
+        item.descricao.toLowerCase().includes(filtroNome.toLowerCase()) &&
+        item.codigo.toString().includes(filtroCodigo) &&
+        item.quantidade.toString().includes(filtroQuantidade) &&
+        item.unidade.toLowerCase().includes(filtroUnidade.toLowerCase())
+    )
+
+
+
+
+    
+
     return(
         <>
         <Navbar />
           <div id = "estoque">
-            <h1>Estoque</h1>
+            <div id="div_filtros">
+                <h1>Estoque</h1>
+                <input type="text" placeholder="Pesquisar Descrição" onChange={(e) => {setFiltroNome(e.target.value)}}/>
+                <input type="text" placeholder="Pesquisar Codigo" onChange={(e) => {setFiltroCodigo(e.target.value)}}/>
+                <input type="text" placeholder="Quantidade" onChange={(e) => {setFiltroQuantidade(e.target.value)}}/>
+                <select onChange={(e) => {setFiltroUnidade(e.target.value)}} defaultValue={""} type="text">
+                        <option value=" ">Tipo de Unidade</option>
+                        <option value="Unidade">Unidade</option>
+                        <option value="Pacote">Pacote</option>
+                        <option value="Caixa">Caixa</option>
+                        <option value="Fardo">Fardo</option>
+                        <option value="Saco">Saco</option>
+                        <option value="Rolo">Rolo</option>
+                        <option value="Kit">Kit</option>
+                    </select>
 
+            </div>
             <div id = "div_tabela">
                 <table id="tabela_estoque">
                     <tbody >    
@@ -42,7 +75,7 @@ export function Estoque(){
                             <th>Unidade de controle</th>
                             <th>Quantidade</th>
                         </tr>
-                        {DB_ITEM.map((itens) => (
+                        {estoque_filtro.map((itens) => (
                             <tr key={itens.codigo}>
                                 
                                 <td id="coluna_img"><img src={itens.imagem}/></td>

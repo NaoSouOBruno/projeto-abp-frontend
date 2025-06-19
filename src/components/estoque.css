@@ -16,13 +16,6 @@
     padding-bottom: 1%;
 }
 
-#estoque h1{
-  
-    font-family: 'clear-sans';
-    border-bottom: 5px solid blueviolet;
-    width: 100%;
-}
-
 
 #menu_aux{
     display: flex;
@@ -151,3 +144,24 @@
     max-width: 200px;
 }
 
+/* Filtros */
+
+
+
+#div_filtros{
+    box-shadow: rgba(50, 50, 93, 0.404) 0px 13px 27px -5px, rgba(0, 0, 0, 0.144) 0px 8px 16px -8px;
+    display: flex;
+    background-color: #7f28d1;
+    width: 100%;
+    font-family: 'clear-sans';
+    border-radius: 10px;
+    margin: 2%;
+    padding: 1%;
+    box-shadow: ;
+}
+
+#div_filtros h1{
+
+    color: #ffffff;
+    
+}
