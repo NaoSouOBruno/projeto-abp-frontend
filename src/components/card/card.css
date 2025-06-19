@@ -80,6 +80,10 @@
     background: #56e976;
 }
 
+.statusTodos {
+    background: #c5c5c5;
+}
+
 .statusVazio {
     display: none;
 }

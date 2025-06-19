@@ -45,16 +45,7 @@ body {
     color: #ffffff;
 }
 
-.inputPesquisa {
-    background-color: #faf8ff;
-    border: 1px solid #d0d0d0;
 
-    width: 20%;
-    height: 48px;
-    border-radius: 8px;
-
-    outline: none;
-}
 
 .btnAdicionar {
     background-color: #faf8ff;
@@ -159,7 +150,7 @@ body {
     text-align: left;
 }
 
-.addCachorro input[type="text"], .addCachorro input[type="file"], .addCachorro textarea {
+.addCachorro input[type="text"], .addCachorro input[type="file"], .addCachorro textarea, .addCachorro select {
     font-family: 'clear-sans';
     max-width: 100%;
     resize: none;
@@ -174,8 +165,8 @@ body {
     font-size: 1rem;
     outline: none;
     transition: border 0.2s;
-    
 }
+
 
 .addCachorro input[type="file"] {
     font-size: 12px;
@@ -309,13 +300,77 @@ body {
     border-radius: 20px;
 }
 
-.filtroStatus {
-    width: 36px;
-    height: 36px;
-    
-    border-radius: 50%;
+.opcoesCabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
 }
 
-.statusAbrigo {
-    background: #56e976;
+.divFiltroGeral {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 36px;
+}
+
+.divInputGeral {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    background-color: #fff;
+    height: 36px;
+    border-radius: 8px;
+}
+
+.divInputGeral select {
+    margin-left: 10px;
+    border: none;
+    border-radius: 8px;
+}
+
+.divInputGeral select:hover {
+    cursor: pointer;
+}
+
+.inputPesquisa {
+    background-color: #faf8ff;
+    border: none;
+    text-decoration: none;
+    outline: none;
+
+    width: 70%;
+    height: 80%;
+    border-radius: 8px;
+
+    margin-right: 10px;;
+}
+
+.filtroStatus {
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+}
+
+.divFiltroStatus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.divFiltroStatus h2, .divFiltroGeral h2 {
+    margin: 0;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.divSelectStatus span {
+    font-size: 16px;
+    border-radius: 0 10px 10px 0;
+    margin-top: 10px;
+    min-width: 48px;
+    color: transparent;
 }
