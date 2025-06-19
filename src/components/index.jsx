@@ -142,32 +142,45 @@ export function Index() {
                 <div className='divCabecalho'>
                     <h1 className='tituloTabela'>Cachorros Disponíveis</h1>
 
+                    
+                    <div className='opcoesCabecalho'>
+                    <div className='divFiltroGeral'>
+                    <h2>Pesquisa:</h2>
+                    <div className='divInputGeral'>
                     <select name='filtroGeral' value={null} onChange={null}>
-                                <option value=''>Selecione o filtro</option>
-                                <option value='nome'>Nome</option>
-                                <option value='raca'>Raça</option>
-                                <option value='idade'>Idade</option>
+                        <option value='nome'>Nome</option>
+                        <option value='raca'>Raça</option>
+                        <option value='idade'>Idade</option>
                     </select>
                     
                     <input
                         type='text'
                         className='inputPesquisa'
-                        placeholder='Nome do cachorro...'
+                        placeholder='Pesquisar...'
                         value={filtroNome}
                         onChange={e => setFiltroNome(e.target.value)}
                     />
+                    </div>
+                    </div>
 
-                    <div>
+                    <div className='divFiltroStatus'>
+                    <h2>Status:</h2>
+                    <div className='divSelectStatus'>
                     <select
                         className='filtroStatus'
                         name='filtroStatus'
                         value={filtroStatus}
                         onChange={e => setFiltroStatus(e.target.value)}>
-                                <option value=''></option>
+                                <option value=''>Todos</option>
                                 <option value='No Abrigo'>No Abrigo</option>
                                 <option value='No Veterinário'>No Veterinário</option>
                                 <option value='No Petshop'>No Petshop</option>
                     </select>
+                        {filtroStatus === ''               && <span className='statusTodos'>⠀⠀</span>}
+                        {filtroStatus === 'No Abrigo'      && <span className='statusAbrigo'>⠀⠀</span>}
+                        {filtroStatus === 'No Veterinário' && <span className='statusVeterinario'>⠀⠀</span>}
+                        {filtroStatus === 'No Petshop'     && <span className='statusPetshop'>⠀⠀</span>}
+                    </div>
                     </div>
 
 
@@ -178,11 +191,13 @@ export function Index() {
                         +
                     </button>
 
+                    </div>
+
                 
                 </div>
                 <div className='divCachorros'>
                     {caesFiltrados.length === 0 ? (
-                        <img src='/src/assets/index/icons/logoVazia.png' className='imgVazio' alt='Nenhum cachorro adotado.'/>
+                        <img src='/logoVazia.png' className='imgVazio'/>
                     ) : (
                         caesFiltrados.map((cao) => (
                         <Card
@@ -207,7 +222,7 @@ export function Index() {
                 </div>
                 <div className='divCachorros'>
                     {caesAdotados.length === 0 ? (
-                        <img src='/src/assets/index/icons/logoVazia.png' className='imgVazio' alt='Nenhum cachorro adotado.'/>
+                        <img src='/logoVazia.png' className='imgVazio'/>
                     ) : (
                         caesAdotados.map((cao) => (
                         <Card
@@ -229,7 +244,7 @@ export function Index() {
                     <div className='popupBody'>
                         <div className='divCabecalhoPopup'>
                             <h2>Cadastrar cachorro</h2>
-                            <button className='botaoFecharPopup' onClick={() => setCaoAdd(false)}>×</button>
+                            <button className='botaoFecharPopup' onClick={() => {setCaoAdd(false); setForm({ nome: '', idade: '', raca: '', local: '', descricao: '', img: '', status: '' })}}>×</button>
                         </div>
                         <form action='' className='addCachorro' onSubmit={aoSubmitAdicionar}>
                             <p>Nome:</p>
