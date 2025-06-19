@@ -60,19 +60,16 @@ export function Index() {
         }
     ]);
 
-    // sistema de filtro por nome
-    const [filtroNome, setFiltroNome] = useState('');
+    
 
-    const caesFiltradosGeral = caes.filter(cao =>
-        cao.nome.toLowerCase().includes(filtroNome.toLowerCase())
-        && cao.status !== 'Adotado'
-    );
-
-    // sistema de filtro por status
+    // sistema de filtro
+    const [filtroGeral, setfiltroGeral] = useState('');
+    const [tipoFiltro, setTipoFiltro] = useState('nome');
     const [filtroStatus, setFiltroStatus] = useState('');
     
+    
     const caesFiltrados = caes.filter(cao =>
-        cao.nome.toLowerCase().includes(filtroNome.toLowerCase()) &&
+        cao[tipoFiltro].toLowerCase().includes(filtroGeral.toLowerCase()) &&
         cao.status !== 'Adotado' &&
         (filtroStatus === '' || cao.status === filtroStatus)
     );
@@ -147,7 +144,10 @@ export function Index() {
                     <div className='divFiltroGeral'>
                     <h2>Pesquisa:</h2>
                     <div className='divInputGeral'>
-                    <select name='filtroGeral' value={null} onChange={null}>
+                    <select
+                        name='filtroGeral'
+                        onChange={e => setTipoFiltro(e.target.value)}
+                    >
                         <option value='nome'>Nome</option>
                         <option value='raca'>Raça</option>
                         <option value='idade'>Idade</option>
@@ -157,8 +157,8 @@ export function Index() {
                         type='text'
                         className='inputPesquisa'
                         placeholder='Pesquisar...'
-                        value={filtroNome}
-                        onChange={e => setFiltroNome(e.target.value)}
+                        value={filtroGeral}
+                        onChange={e => setfiltroGeral(e.target.value)}
                     />
                     </div>
                     </div>
