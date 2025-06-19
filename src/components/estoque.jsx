@@ -3,6 +3,7 @@ import { Add } from './estoque/add_estoque';
 import { Delete } from './estoque/delete_estoque';
 import { Edit } from './estoque/edit_estoque';
 import { Visualizar } from './estoque/visualizar.jsx';
+import { Registro } from './estoque/registro.jsx';
 import { useEffect, useState } from 'react';
 
 import { Navbar } from './navbar/navbar.jsx'
@@ -13,6 +14,7 @@ export function Estoque(){
     const [openEdit,setOpenEdit] = useState(false);
     const [openDelete,setOpenDelete] = useState(false); 
     const [openVisualizar,setOpenVisualizar] = useState(false)
+    const [openRegistro,setOpenRegistro] = useState(false)
     const [codigoSelect,setCodigoSelect] = useState(0)
     const [DB_ITEM,setDB_ITEM] = useState([]);
     const [filtroNome,setFiltroNome] = useState("")
@@ -95,11 +97,13 @@ export function Estoque(){
             </div>
             <div id='menu_aux'>
                 <button id='botao_add' onClick={() => setOpen(true)}><img src="/src/assets/estoque/+.png" alt="add"/></button>
+                <button id='botao_add' onClick={() => setOpenRegistro(true)}><img src="/src/assets/estoque/registro.png" alt="registro"/></button>
             </div>
             <Add open={open} setOpen={() => setOpen(false)}/>
             <Edit openEdit={openEdit} setOpenEdit={() => setOpenEdit(false)} codigoSelect={codigoSelect} />   
             <Delete openDelete={openDelete}  setOpenDelete={() => setOpenDelete(false)} codigoSelect={codigoSelect}  />
             <Visualizar openVisualizar={openVisualizar} setOpenVisualizar={() => setOpenVisualizar(false)} codigoSelect={codigoSelect} />
+            <Registro openRegistro={openRegistro}  setOpenRegistro={() => setOpenRegistro(false)} codigoSelect={codigoSelect}  />
           </div>
         </>
     );
