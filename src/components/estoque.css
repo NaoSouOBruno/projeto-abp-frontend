@@ -25,13 +25,9 @@
 
 
 #menu_aux{
-
     display: flex;
     justify-content: center;
-    
     width: 30%;
-  
-
 }
 
 
@@ -59,7 +55,8 @@
     height: auto;
     padding: 0px;
     border-radius: 10px;
-
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 #botao_gen:hover{
@@ -94,6 +91,7 @@
     display: flex;
     width: 100%;
     height: 70%;
+    max-height: 600px;
     justify-content: center;
     align-content: center;
     overflow-y: auto;
@@ -124,21 +122,21 @@
 
 
 #tabela_estoque tr:nth-child(odd) {
-  background-color: #f2f2f2;
+  background-color: #d2c8e6;
   
 }
 #tabela_estoque tr:nth-child(even) {
-  background-color: #ffffff;
+  background-color: #f8f8f8;
 }
 
-#coluna_bottons{   
-    width: 7%;
+#coluna_bottons{
+    width:6%;
 }
 
 
 #coluna_bottons img{   
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
 }
 

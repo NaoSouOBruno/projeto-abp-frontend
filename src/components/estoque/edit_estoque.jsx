@@ -3,23 +3,19 @@ import { useEffect, useState } from 'react';
 
 export function Edit({openEdit,setOpenEdit,codigoSelect}){
     
-    
+    const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM"));
+    const [Img,setImg] = useState("") //usado para conseguirmos alterar a img
+    const [item_edit,setItem_edit] = useState([""]);
 
+    const Dado = DB_ITEM.find(item => item.codigo === codigoSelect) || []; 
 
-
-    if (!openEdit) return null;
-        
-        const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM"));
-        const [Img,setImg] = useState("") //usado para conseguirmos alterar a img
-        const [item_edit,setItem_edit] = useState([""]);
-
-    
-        const Dado = DB_ITEM.find(item => item.codigo === codigoSelect) || []; 
-
-        useEffect(() => {
+    useEffect(() => {
             setItem_edit(Dado)
         },[])    
         
+
+    if (!openEdit) return null;
+          
         function AddImagem(e){ //pega a img do input e trasforma em url
             if (Dado != null && DB_ITEM != null){
                 const x = e.target.files[0]
