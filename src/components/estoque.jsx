@@ -103,7 +103,7 @@ export function Estoque(){
             <Edit openEdit={openEdit} setOpenEdit={() => setOpenEdit(false)} codigoSelect={codigoSelect} />   
             <Delete openDelete={openDelete}  setOpenDelete={() => setOpenDelete(false)} codigoSelect={codigoSelect}  />
             <Visualizar openVisualizar={openVisualizar} setOpenVisualizar={() => setOpenVisualizar(false)} codigoSelect={codigoSelect} />
-            <Registro openRegistro={openRegistro}  setOpenRegistro={() => setOpenRegistro(false)} codigoSelect={codigoSelect}  />
+            <Registro openRegistro={openRegistro}  setOpenRegistro={() => setOpenRegistro(false)}  />
           </div>
         </>
     );

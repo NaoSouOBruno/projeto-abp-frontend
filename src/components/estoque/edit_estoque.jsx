@@ -71,9 +71,9 @@ export function Edit({openEdit,setOpenEdit,codigoSelect}){
                     }} type="file" name="imagem"  />
                     <img src={Img === "" ? Dado.imagem: Img} alt="" />
                     <h2>Descrição:</h2>
-                    <input onChange={item_construcao} value={Dado.descricao} name="descricao" type="text" />
+                    <input onChange={item_construcao} defaultValue={Dado.descricao} name="descricao" type="text" />
                     <h2>Código:</h2>
-                    <input disabled value={Dado.codigo}  name="codigo" type="text" />
+                    <input disabled defaultValue={Dado.codigo}  name="codigo" type="text" />
                     <h2>Unidade de controle:</h2>
                     <select onChange={item_construcao} value={Dado.unidade} name="unidade" type="text">
                         <option value="Unidade">Unidade</option>
