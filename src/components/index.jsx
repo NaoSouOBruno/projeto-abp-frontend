@@ -63,8 +63,6 @@ export function Index() {
         }
     ]});
 
-    
-
     // sistema de filtro
     const [filtroGeral, setfiltroGeral] = useState('');
     const [tipoFiltro, setTipoFiltro] = useState('nome');
@@ -99,7 +97,11 @@ export function Index() {
     function alterarFormAdicionar(e) {
         const { name, value, files } = e.target;
         if (name === 'img' && files.length > 0) {                                                       // verifica campo imagem
-            setForm({ ...form, img: URL.createObjectURL(files[0])});                                    // cria url temporaria
+            const reader = new FileReader();
+            reader.onload = function(e) {
+            setForm({ ...form, img: e.target.result });
+        };
+        reader.readAsDataURL(files[0]);
         } else {
             setForm({ ...form, [name]: value });                                                        // atualiza o estado do form
         }

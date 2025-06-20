@@ -25,13 +25,11 @@ export function Card({
         <img
           src={img}
           className="cardImagem"
-          alt="imgCachorro"
         />
       ) :
         <img
           src="/src/assets/index/icons/imagemVazia.png"
           className="cardImagem"
-          alt="imgCachorro"
         />
       }
 
