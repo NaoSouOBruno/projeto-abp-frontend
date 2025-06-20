@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './index.css'
 
 import { Card } from './card/card.jsx'
@@ -6,8 +6,11 @@ import { Navbar } from './navbar/navbar.jsx'
 
 export function Index() {
 
-    const [caes, setCaes] = useState([
-        // alguns cachorrinhos só pra placeholder!
+    const [caes, setCaes] = useState(() => {
+        const caesSalvos = localStorage.getItem('caes');                            // le cachorros salvos no localstorage
+        return caesSalvos ? JSON.parse(caesSalvos) :                                // se não tiver nada, adiciona os placeholders
+        [
+        // alguns cachorrinhos (só pra placeholder)!
         {
             id: 1,
             img: '/src/assets/index/cachorro1.jpeg',
@@ -58,7 +61,7 @@ export function Index() {
             descricao: 'Oi, eu sou o Bruno! Eu que fiz essa página.',
             status: 'No Abrigo'
         }
-    ]);
+    ]});
 
     
 
@@ -66,7 +69,6 @@ export function Index() {
     const [filtroGeral, setfiltroGeral] = useState('');
     const [tipoFiltro, setTipoFiltro] = useState('nome');
     const [filtroStatus, setFiltroStatus] = useState('');
-    
     
     const caesFiltrados = caes.filter(cao =>
         cao[tipoFiltro].toLowerCase().includes(filtroGeral.toLowerCase()) &&
@@ -126,6 +128,11 @@ export function Index() {
         setCaes(caes.map(cao => cao.id === caoEditar.id ? caoEditar : cao));                        // atualiza o cachorro editado no array
         setCaoEditar(null);                                                                             // fecha popup de edição
     }
+
+    // localstorage
+    useEffect(() => {
+        localStorage.setItem('caes', JSON.stringify(caes));                                         // envia cachorros p localstorage quando array for atualizado
+    }, [caes]);
 
 
 
