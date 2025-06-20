@@ -52,11 +52,16 @@ export function Estoque(){
           <div id = "estoque">
             <div id="div_filtros">
                 <h1>Estoque</h1>
-                <input type="text" placeholder="Pesquisar Descrição" onChange={(e) => {setFiltroNome(e.target.value)}}/>
-                <input type="text" placeholder="Pesquisar Codigo" onChange={(e) => {setFiltroCodigo(e.target.value)}}/>
-                <input type="text" placeholder="Quantidade" onChange={(e) => {setFiltroQuantidade(e.target.value)}}/>
-                <select onChange={(e) => {setFiltroUnidade(e.target.value)}} defaultValue={""} type="text">
-                        <option value=" ">Tipo de Unidade</option>
+                <div id="filtros">
+                <p>Descrição:</p>
+                <input id="filtros_descricao" type="text" placeholder="Pesquisar Descrição" onChange={(e) => {setFiltroNome(e.target.value)}}/>
+                <p>Codigo:</p>
+                <input id="filtros_codigo" type="text" placeholder="Pesquisar Codigo" onChange={(e) => {setFiltroCodigo(e.target.value)}}/>
+                <p>Quantidade:</p>
+                <input id="filtros_quantidade" type="text" placeholder="Quantidade" onChange={(e) => {setFiltroQuantidade(e.target.value)}}/>
+                <p>Unidade:</p>
+                <select id="filtros_unidade" onChange={(e) => {setFiltroUnidade(e.target.value)}} defaultValue={""} type="text">
+                        <option value="">Todos</option>
                         <option value="Unidade">Unidade</option>
                         <option value="Pacote">Pacote</option>
                         <option value="Caixa">Caixa</option>
@@ -65,7 +70,7 @@ export function Estoque(){
                         <option value="Rolo">Rolo</option>
                         <option value="Kit">Kit</option>
                     </select>
-
+                </div>
             </div>
             <div id = "div_tabela">
                 <table id="tabela_estoque">
