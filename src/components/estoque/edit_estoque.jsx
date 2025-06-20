@@ -28,7 +28,7 @@ export function Edit({openEdit,setOpenEdit,codigoSelect}){
         
         
 
-        const item_construcao = (e) => {   //constroi o item quando o input recebe alteração
+    function item_construcao(e){   //constroi o item quando o input recebe alteração
             if (e.target.type === "file"){ // possibilita armazenar um imagem no local storage convertendo ela para ser possivel de leitura
                 const name = e.target.name
                 const imagem = e.target.files[0]; // acho a imagem
@@ -48,7 +48,7 @@ export function Edit({openEdit,setOpenEdit,codigoSelect}){
 
 
 
-    const salvar_item = () => { // modifica o item e manda para o local storage
+    function salvar_item (){ // modifica o item e manda para o local storage
         const item_atualizado = DB_ITEM.map((item) => item.codigo === Dado.codigo ? {...item, imagem:item_edit.imagem, descricao:item_edit.descricao, unidade: item_edit.unidade} : item); //modifica
         console.log(item_atualizado) // teste para ver se tá chegando
         localStorage.setItem("DB_ITEM",JSON.stringify(item_atualizado)); //manda
@@ -71,11 +71,11 @@ export function Edit({openEdit,setOpenEdit,codigoSelect}){
                     }} type="file" name="imagem"  />
                     <img src={Img === "" ? Dado.imagem: Img} alt="" />
                     <h2>Descrição:</h2>
-                    <input onChange={item_construcao} defaultValue={Dado.descricao} name="descricao" type="text" />
+                    <input onChange={item_construcao} value={Dado.descricao} name="descricao" type="text" />
                     <h2>Código:</h2>
                     <input disabled value={Dado.codigo}  name="codigo" type="text" />
                     <h2>Unidade de controle:</h2>
-                    <select onChange={item_construcao} defaultValue={Dado.unidade} name="unidade" type="text">
+                    <select onChange={item_construcao} value={Dado.unidade} name="unidade" type="text">
                         <option value="Unidade">Unidade</option>
                         <option value="Pacote">Pacote</option>
                         <option value="Caixa">Caixa</option>
@@ -86,8 +86,8 @@ export function Edit({openEdit,setOpenEdit,codigoSelect}){
                     </select>
 
                     <div id="botoes">
-                        <button onClick={salvar_item}>Editar</button>
-                        <button onClick={setOpenEdit}>Cancelar</button>
+                        <button type="button" onClick={salvar_item}>Editar</button>
+                        <button type="button" onClick={setOpenEdit}>Cancelar</button>
                     </div>
                     </form>
                 </div>
