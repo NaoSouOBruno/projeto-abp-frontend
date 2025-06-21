@@ -68,32 +68,36 @@ export function Registro ({openRegistro,setOpenRegistro}){
 
     return(
 
-            <div id="fundo">
-                    <div id="menu">
-                        <div>
+            <div id="fundo_registro">
+                    <div id="menu_registro">
+                        {/* <div>
                             <h1>Regitro de estoque</h1>
+                        </div> */}
+                        <div id="select_item">
+                           
+                            <Select id="select_options" onChange={(opcoes) => selecionado_estoque(opcoes)} placeholder="Selecione um item" options={opcoes} />
+                            <img src={selecionado.imagem === null ? "/logos/logo1.png": selecionado.imagem} alt="imagem" />
                         </div>
-                        <div>
-                            <Select onChange={(opcoes) => selecionado_estoque(opcoes)} placeholder="Selecione um item" options={opcoes} />
-                        </div>
-                        <div>
-                            <label htmlFor="selectQuatidade"></label>
-                            <h3>Quantidade atual: {quantidadeAntiga}</h3>
-                            <h3>Quantidade selecionada: {selectQuatidade}</h3>
-                            <input value={selectQuatidade} onChange={(e) => item_construcao(e)}  type="range" id="selectQuatidade" min="-100" max="100"/>
-                        </div>
-                        
-                        {aviso && (
-                            <div id="aviso">
-                                <h3>Quantidade desejada para baixa superior ao estoque</h3>
+                        <div id="dados_item">
+                            <h1>Registro De Estoque</h1>
+                            <div id="select_quantidade">
+                                <label htmlFor="selectQuatidade"></label>
+                                <h3>📜Quantidade atual: {quantidadeAntiga}</h3>
+                                <h3>📉Quantidade selecionada: {selectQuatidade}</h3>
+                                <input value={selectQuatidade} onChange={(e) => item_construcao(e)}  type="range" id="selectQuatidade" min="-100" max="100"/>
                             </div>
-                        )}
+                            
+                            {aviso && (
+                                <div id="aviso_estoque">
+                                    <h3>⚠ Quantidade superior ao estoque ⚠</h3>
+                                </div>
+                            )}
 
-                        <div id="botoes">
-                            <button onClick={salvar_item}>Alterar estoque</button>
-                            <button onClick={() => {setOpenRegistro(false),setSelectQuantidade(0),setQuantidadeAntiga(0),setAviso(false)}}>Cancelar</button>
+                            <div id="botoes_registro">
+                                <button onClick={salvar_item}>Registrar</button>
+                                <button onClick={() => {setOpenRegistro(false),setSelectQuantidade(0),setQuantidadeAntiga(0),setAviso(false)}}>Cancelar</button>
+                            </div>
                         </div>
-                        
                     </div>
             </div>
 
