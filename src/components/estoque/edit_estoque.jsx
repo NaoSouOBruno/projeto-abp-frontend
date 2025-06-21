@@ -1,4 +1,4 @@
-import "./add_estoque.css"
+import "./edit_estoque.css"
 import { useEffect, useState } from 'react';
 
 export function Edit({openEdit,setOpenEdit,codigoSelect}){
@@ -61,31 +61,30 @@ export function Edit({openEdit,setOpenEdit,codigoSelect}){
     return(
 
         <div className="fundo_blur">
-                <div id="menu">
+                <div id="menu_editor">
                     <h1>Editor de item</h1>
-                    <form action="">
+                    <form id="form_editor" action="">
                     <h2>Imagem:</h2>
-                    <input onChange={(e) => {
+                    <input id="edit_input_imaegm" onChange={(e) => {
                         AddImagem(e);
                         item_construcao(e);
                     }} type="file" name="imagem"  />
                     <img src={Img === "" ? Dado.imagem: Img} alt="" />
-                    <h2>Descrição:</h2>
-                    <input onChange={item_construcao} defaultValue={Dado.descricao} name="descricao" type="text" />
-                    <h2>Código:</h2>
-                    <input disabled defaultValue={Dado.codigo}  name="codigo" type="text" />
-                    <h2>Unidade de controle:</h2>
-                    <select onChange={item_construcao} value={Dado.unidade} name="unidade" type="text">
-                        <option value="Unidade">Unidade</option>
-                        <option value="Pacote">Pacote</option>
-                        <option value="Caixa">Caixa</option>
-                        <option value="Fardo">Fardo</option>
-                        <option value="Saco">Saco</option>
-                        <option value="Rolo">Rolo</option>
-                        <option value="Kit">Kit</option>
-                    </select>
-
-                    <div id="botoes">
+                    <div id="all_editor">
+                        <h2>Descrição:</h2>
+                        <input id="edit_descricao" onChange={item_construcao} defaultValue={Dado.descricao} name="descricao" type="text" />
+                        <h2>Unidade de controle:</h2>
+                        <select id="edit_unidade" onChange={item_construcao} value={Dado.unidade} name="unidade" type="text">
+                            <option value="Unidade">Unidade</option>
+                            <option value="Pacote">Pacote</option>
+                            <option value="Caixa">Caixa</option>
+                            <option value="Fardo">Fardo</option>
+                            <option value="Saco">Saco</option>
+                            <option value="Rolo">Rolo</option>
+                            <option value="Kit">Kit</option>
+                        </select>
+                    </div>
+                    <div id="botoes_editor">
                         <button type="button" onClick={salvar_item}>Editar</button>
                         <button type="button" onClick={setOpenEdit}>Cancelar</button>
                     </div>
