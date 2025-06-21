@@ -6,8 +6,7 @@ nav {
 .nav {
     font-family: 'clear-sans';
     font-size: 20px;
-    padding: 20px;
-
+    padding: 2%;
     display: flex;
     gap: 2rem;
     margin-bottom: 2rem;

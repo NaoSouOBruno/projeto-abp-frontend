@@ -70,6 +70,8 @@ export function Estoque(){
                         <option value="Rolo">Rolo</option>
                         <option value="Kit">Kit</option>
                     </select>
+                <button id='botao_add' onClick={() => setOpen(true)}><img src="/src/assets/estoque/+.png" alt="add"/></button>
+                <button id='botao_add' onClick={() => setOpenRegistro(true)}><img src="/src/assets/estoque/registro.png" alt="registro"/></button>
                 </div>
             </div>
             <div id = "div_tabela">
@@ -92,7 +94,7 @@ export function Estoque(){
                                 <td width={"10%"} >{itens.quantidade}</td>
                                 <td  id="coluna_bottons"><button id='botao_gen' onClick={() => {setOpenEdit(true),setCodigoSelect(itens.codigo)}}> <img src="/src/assets/estoque/editar.png" alt="editar" /></button>
                                 <button id='botao_gen' onClick={() => {setCodigoSelect(itens.codigo),setOpenDelete(true)}}><img src="/src/assets/estoque/delete.png" alt="deletar" /></button>
-                                <button id='botao_gen' onClick={() => {setCodigoSelect(itens.codigo), setOpenVisualizar(true)}}><img src="/src/assets/estoque/olhar.png" alt="visualizar" /></button>
+                                <button id='botao_gen' onClick={() => {setCodigoSelect(itens.codigo), setOpenVisualizar(true)}}><img src="/src/assets/estoque/visualizar.png" alt="visualizar" /></button>
                                 </td>
                                 
                             </tr>
@@ -101,8 +103,7 @@ export function Estoque(){
                 </table>
             </div>
             <div id='menu_aux'>
-                <button id='botao_add' onClick={() => setOpen(true)}><img src="/src/assets/estoque/+.png" alt="add"/></button>
-                <button id='botao_add' onClick={() => setOpenRegistro(true)}><img src="/src/assets/estoque/registro.png" alt="registro"/></button>
+                
             </div>
             <Add open={open} setOpen={() => setOpen(false)}/>
             <Edit openEdit={openEdit} setOpenEdit={() => setOpenEdit(false)} codigoSelect={codigoSelect} />   

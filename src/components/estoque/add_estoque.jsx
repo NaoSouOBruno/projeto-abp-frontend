@@ -66,29 +66,34 @@ export function Add({open,setOpen}){
         
         return (
 
-            <div id="fundo">    
-                <div id="menu">
+            <div id="fundo_add">    
+                <div id="menu_add">
                     <h1>Criação de item</h1>
                     <form action="">
                     <h2>Imagem:</h2>
-                    <input onChange={item_construcao} type="file" name="imagem"  />
-                    <img required src={item_novo.imagem ? item_novo.imagem : "/logos/logo1.png"} alt="" />
-                    <h2>Descrição:</h2>
-                    <input required value={item_novo.descricao} onChange={item_construcao} name="descricao" type="text" />
-                    <h2>Código:</h2>
-                    <input required value={item_novo.codigo} onChange={item_construcao} name="codigo" type="text" disabled />
-                    <h2>Unidade de controle:</h2>
-                    {/* <input value={item_novo.unidade} onChange={item_construcao} name="unidade" type="text" /> */}
-                    <select required value={item_novo.unidade} onChange={item_construcao} name="unidade">
-                        <option value="Unidade">Unidade</option>
-                        <option value="Pacote">Pacote</option>
-                        <option value="Caixa">Caixa</option>
-                        <option value="Fardo">Fardo</option>
-                        <option value="Saco">Saco</option>
-                        <option value="Rolo">Rolo</option>
-                        <option value="Kit">Kit</option>
-                    </select>
-                    <div id="botoes">
+                    
+                    <input id="add_input_imagem" onChange={item_construcao} type="file" name="imagem"  />
+                    <div id="add_img">
+                        <img required src={item_novo.imagem ? item_novo.imagem : "/logos/logo1.png"} alt="" />
+                    </div>
+                    <div id="add_all">
+                        <h2>Descrição:</h2>
+                        <input id="add_input_descricao" required value={item_novo.descricao} onChange={item_construcao} name="descricao" type="text" />
+                        <h2>Código:</h2>
+                        <input id="add_input_codigo" required value={item_novo.codigo} onChange={item_construcao} name="codigo" type="text" disabled />
+                        <h2>Unidade de controle:</h2>
+                        {/* <input value={item_novo.unidade} onChange={item_construcao} name="unidade" type="text" /> */}
+                        <select id="add_select_unidade" required value={item_novo.unidade} onChange={item_construcao} name="unidade">
+                            <option value="Unidade">Unidade</option>
+                            <option value="Pacote">Pacote</option>
+                            <option value="Caixa">Caixa</option>
+                            <option value="Fardo">Fardo</option>
+                            <option value="Saco">Saco</option>
+                            <option value="Rolo">Rolo</option>
+                            <option value="Kit">Kit</option>
+                        </select>
+                    </div>
+                    <div id="botoes_add">
                         <button onClick={add_item}>Criar</button> 
                         <button onClick={setOpen}>Cancelar</button>
                     </div>
