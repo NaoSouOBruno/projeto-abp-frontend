@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react';
 
 export function Edit({openEdit,setOpenEdit,codigoSelect}){
     
-    const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM"));
+    const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM") || "[]");
     const [Img,setImg] = useState("") //usado para conseguirmos alterar a img
     const [item_edit,setItem_edit] = useState([""]);
 
-    const Dado = DB_ITEM.find(item => item.codigo === codigoSelect) || []; 
+    const Dado = DB_ITEM.find(item => item.codigo === codigoSelect) ; 
 
     useEffect(() => {
             setItem_edit(Dado)

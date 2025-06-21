@@ -50,6 +50,11 @@ export function Estoque(){
         <>
         
         <Navbar />
+            <Add open={open} setOpen={() => setOpen(false)}/>
+            <Edit openEdit={openEdit} setOpenEdit={() => setOpenEdit(false)} codigoSelect={codigoSelect} />   
+            <Delete openDelete={openDelete}  setOpenDelete={() => setOpenDelete(false)} codigoSelect={codigoSelect}  />
+            <Visualizar openVisualizar={openVisualizar} setOpenVisualizar={() => setOpenVisualizar(false)} codigoSelect={codigoSelect} />
+            <Registro openRegistro={openRegistro}  setOpenRegistro={() => setOpenRegistro(false)}  />
           <div id = "estoque">
             <div id="div_filtros">
                 <h1>Estoque</h1>
@@ -104,11 +109,7 @@ export function Estoque(){
                 </table>
             </div>
           </div>
-          <Add open={open} setOpen={() => setOpen(false)}/>
-            <Edit openEdit={openEdit} setOpenEdit={() => setOpenEdit(false)} codigoSelect={codigoSelect} />   
-            <Delete openDelete={openDelete}  setOpenDelete={() => setOpenDelete(false)} codigoSelect={codigoSelect}  />
-            <Visualizar openVisualizar={openVisualizar} setOpenVisualizar={() => setOpenVisualizar(false)} codigoSelect={codigoSelect} />
-            <Registro openRegistro={openRegistro}  setOpenRegistro={() => setOpenRegistro(false)}  />
+          
         </>
         
     );

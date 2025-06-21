@@ -5,7 +5,7 @@ import Select from 'react-select'
 
 export function Registro ({openRegistro,setOpenRegistro}){
 
-    const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM"));
+    const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM") || "[]");
     const [quantidadeAntiga,setQuantidadeAntiga] = useState(0);
     const [selectQuatidade,setSelectQuantidade] = useState(0);
     const [selecionado,setSelecionado] = useState([]);

@@ -3,7 +3,7 @@ import "./delete_estoque.css"
 
 export function Delete({openDelete,setOpenDelete,codigoSelect}){
 
-    const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM")) || [];
+    const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM") || "[]");
     const codigo = codigoSelect;
 
     function deletar(){

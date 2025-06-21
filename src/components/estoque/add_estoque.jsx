@@ -8,7 +8,7 @@ export function Add({open,setOpen}){
     const [codigonumero,setCodigonumero] = useState(0); //variavel usada para o codigo do item
     const [item_novo,setItem_novo] = useState({imagem: '',descricao: '',codigo: codigonumero,unidade: 'Unidade',quantidade: 0}
     );
-    const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM")) || [];
+    const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM") || "[]");
     
     function gerar_codigo(){ //gera um codigo com basse no ultimo codigo do item adicionado e soma + 1 
 
