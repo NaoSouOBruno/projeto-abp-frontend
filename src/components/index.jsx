@@ -186,10 +186,10 @@ export function Index() {
                                 <option value='No Veterinário'>No Veterinário</option>
                                 <option value='No Petshop'>No Petshop</option>
                     </select>
-                        {filtroStatus === ''               && <span className='statusTodos'>⠀⠀</span>}
-                        {filtroStatus === 'No Abrigo'      && <span className='statusAbrigo'>⠀⠀</span>}
-                        {filtroStatus === 'No Veterinário' && <span className='statusVeterinario'>⠀⠀</span>}
-                        {filtroStatus === 'No Petshop'     && <span className='statusPetshop'>⠀⠀</span>}
+                        {filtroStatus === ''               && <span className='statusTodos'></span>}
+                        {filtroStatus === 'No Abrigo'      && <span className='statusAbrigo'></span>}
+                        {filtroStatus === 'No Veterinário' && <span className='statusVeterinario'></span>}
+                        {filtroStatus === 'No Petshop'     && <span className='statusPetshop'></span>}
                     </div>
                     </div>
 
@@ -256,6 +256,7 @@ export function Index() {
                             <h2>Cadastrar cachorro</h2>
                             <button className='botaoFecharPopup' onClick={() => {setCaoAdd(false); setForm({ nome: '', idade: '', raca: '', local: '', descricao: '', img: '', status: '' })}}>×</button>
                         </div>
+                        <div className='divForm'>
                         <form action='' className='addCachorro' onSubmit={aoSubmitAdicionar}>
                             <p>Nome:</p>
                             <input type='text' name='nome' value={form.nome} onChange={alterarFormAdicionar} required />
@@ -284,17 +285,16 @@ export function Index() {
                                 <option value='No Abrigo'>No Abrigo</option>
                                 <option value='Adotado'>Adotado</option>
                             </select>
-                            <br/>
-                            <br/>
                             <button type='submit'>Cadastrar</button>
                         </form>
+                        </div>
                     </div>
                 </div>
             )}
 
             {caoDetalhe && (
                 <div className='popupOverlay'>
-                    <div className='popupBody'>
+                    <div className='popupBodyDetalhes'>
                         <div className='divCabecalhoPopup'>
                             <h2>{caoDetalhe.nome}</h2>
                             <button className='botaoFecharPopup' onClick={() => setCaoDetalhe(null)}>×</button>
@@ -331,6 +331,7 @@ export function Index() {
                             <h2>Editar informações</h2>
                             <button className='botaoFecharPopup' onClick={() => setCaoEditar(null)}>×</button>
                         </div>
+                        <div className='divForm'>
                         <form action='' className='addCachorro' onSubmit={aoSubmitEditar}>
                             <p>Nome:</p>
                             <input type='text' name='nome' value={caoEditar.nome} onChange={alterarFormEditar} disabled />
@@ -355,10 +356,9 @@ export function Index() {
                                 <option value='No Abrigo'>No Abrigo</option>
                                 <option value='Adotado'>Adotado</option>
                             </select>
-                            <br/>
-                            <br/>
                             <button type='submit'>Alterar</button>
                         </form>
+                        </div>
                     </div>
                 </div>
             )}
