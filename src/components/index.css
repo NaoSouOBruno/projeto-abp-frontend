@@ -42,6 +42,7 @@ body {
 }
 
 .tituloTabela {
+    font-size: 20px;
     color: #ffffff;
 }
 
@@ -54,8 +55,8 @@ body {
     border: none;
     border-radius: 50%;
 
-    width: 48px;
-    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
     padding: 0;
     font-size: 32px;
     font-weight: bold;
@@ -94,7 +95,11 @@ body {
     background: white;
 
     border-radius: 20px;
-    min-width: 300px;
+
+    min-width: 280px;
+    max-width: 500px;
+
+    max-height: 90vh;
     
     display: flex;
     flex-direction: column;
@@ -107,7 +112,7 @@ body {
     background: #7f28d1;
     color: #ffffff;
 
-    font-size: 16px;
+    font-size: 14px;
 
     padding: 8px 24px;
     border-radius: 20px 20px 0 0;
@@ -145,9 +150,13 @@ body {
     color: #444444;
 
     margin: 0 0 2px 0;
-    font-size: 16px;
+    font-size: 12px;
     
     text-align: left;
+}
+
+.divForm {
+    overflow-y: auto;
 }
 
 .addCachorro input[type="text"], .addCachorro input[type="file"], .addCachorro textarea, .addCachorro select {
@@ -162,7 +171,7 @@ body {
     border-radius: 8px;
     
     
-    font-size: 1rem;
+    font-size: 12px;
     outline: none;
     transition: border 0.2s;
 }
@@ -190,6 +199,20 @@ body {
 
 .addCachorro button[type="submit"]:hover {
     background: #5d1fa0;
+}
+
+.popupBodyDetalhes {
+    background: white;
+
+    border-radius: 20px;
+
+    max-height: 90vh;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
 }
 
 .detalhesBody {
@@ -294,8 +317,8 @@ body {
 }
 
 .divImagem img {
-    max-width: 100px;
-    min-height: 100px;
+    max-width: 70px;
+    min-height: 70px;
     object-fit: cover;
     border-radius: 20px;
 }
@@ -367,10 +390,21 @@ body {
     color: #ffffff;
 }
 
+.divSelectStatus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+}
+
 .divSelectStatus span {
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 24px;
+    height: 24px;
     font-size: 16px;
     border-radius: 0 10px 10px 0;
-    margin-top: 10px;
-    min-width: 48px;
     color: transparent;
+    vertical-align: middle;
 }
