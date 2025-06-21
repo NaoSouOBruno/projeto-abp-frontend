@@ -60,7 +60,7 @@ export function Edit({openEdit,setOpenEdit,codigoSelect}){
 
     return(
 
-        <div id="fundo">
+        <div className="fundo_blur">
                 <div id="menu">
                     <h1>Editor de item</h1>
                     <form action="">

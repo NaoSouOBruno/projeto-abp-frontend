@@ -66,7 +66,7 @@ export function Add({open,setOpen}){
         
         return (
 
-            <div id="fundo_add">    
+            <div className="fundo_blur">    
                 <div id="menu_add">
                     <h1>Criação de item</h1>
                     <form action="">

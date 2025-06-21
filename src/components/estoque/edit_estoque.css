@@ -1,12 +1,4 @@
 
-#fundo{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    backdrop-filter: blur(2px);
-    z-index: 1;
-    
-}
 
 
 #menu{

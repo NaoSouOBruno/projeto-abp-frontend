@@ -13,7 +13,7 @@ export function Visualizar({openVisualizar,setOpenVisualizar,codigoSelect}){
 
     return(
 
-        <div id="fundo">
+        <div className="fundo_blur">
                 <div id="menu">
                     <img src={Dado.imagem === ""? img_padrao : Dado.imagem} alt="imagem" />
                     <h2>Descrição:</h2>

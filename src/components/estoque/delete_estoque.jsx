@@ -17,7 +17,7 @@ export function Delete({openDelete,setOpenDelete,codigoSelect}){
 
     return(
 
-        <div id="fundo">
+        <div className="fundo_blur">
 
             <div id="menu_delete">
                 <div id="mensagem_delete">

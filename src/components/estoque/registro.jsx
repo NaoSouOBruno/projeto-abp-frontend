@@ -68,7 +68,7 @@ export function Registro ({openRegistro,setOpenRegistro}){
 
     return(
 
-            <div id="fundo_registro">
+            <div className="fundo_blur">
                     <div id="menu_registro">
                         {/* <div>
                             <h1>Regitro de estoque</h1>
@@ -76,7 +76,7 @@ export function Registro ({openRegistro,setOpenRegistro}){
                         <div id="select_item">
                            
                             <Select id="select_options" onChange={(opcoes) => selecionado_estoque(opcoes)} placeholder="Selecione um item" options={opcoes} />
-                            <img src={selecionado.imagem === null ? "/logos/logo1.png": selecionado.imagem} alt="imagem" />
+                            <img  src={!selecionado.imagem?.trim() ? "/logos/logo1.png" : selecionado.imagem}  />
                         </div>
                         <div id="dados_item">
                             <h1>Registro De Estoque</h1>
