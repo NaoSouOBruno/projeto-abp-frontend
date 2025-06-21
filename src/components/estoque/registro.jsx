@@ -82,8 +82,8 @@ export function Registro ({openRegistro,setOpenRegistro}){
                             <h1>Registro De Estoque</h1>
                             <div id="select_quantidade">
                                 <label htmlFor="selectQuatidade"></label>
-                                <h3>📜Quantidade atual: {quantidadeAntiga}</h3>
-                                <h3>📉Quantidade selecionada: {selectQuatidade}</h3>
+                                <h3> ● Quantidade atual: {quantidadeAntiga}</h3>
+                                <h3> ● Quantidade selecionada: {selectQuatidade}</h3>
                                 <input value={selectQuatidade} onChange={(e) => item_construcao(e)}  type="range" id="selectQuatidade" min="-100" max="100"/>
                             </div>
                             
