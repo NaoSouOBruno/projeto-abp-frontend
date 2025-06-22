@@ -70,7 +70,9 @@
 .status.adotado {
   background-color: #2196f3; /* azul */
 }
-
+.status.adotado {
+  background-color: #f3e921; /* azul */
+}
 .stats_user p {
   margin: 5px 0;
   font-weight: 600;
