@@ -4,14 +4,20 @@ nav {
 }
 
 .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     font-family: 'clear-sans';
     font-size: 20px;
     padding: 2%;
-    display: flex;
+    padding-left: 8%;
+    padding-right: 8%;
+
     gap: 2rem;
     margin-bottom: 2rem;
     margin-top: 0;
-    align-items: center;
+
     margin-inline: auto;
     list-style: none;
     color: black;
@@ -20,6 +26,12 @@ nav {
     
    
     border-radius: 0 0 20px 20px;
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+    gap: 48px;
 }
 
 .lista{
@@ -36,8 +48,12 @@ nav {
     cursor: pointer;
 }
 
- a {
+a {
     text-decoration: none;
+}
+
+b {
+    color: rgb(127, 40, 209);
 }
 
 .logo {

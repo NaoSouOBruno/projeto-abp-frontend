@@ -8,15 +8,26 @@ return (
 <nav>
     <ul className="nav">
         <img className="logo" src="../public/logo.png"/>
+        <div>
+
+        <Link to="/Stats">
         <li className="lista">
-            <Link to="/Estoque"><b>ESTOQUE</b></Link>
+            <b>ESTATÍSTICAS</b>
         </li>
+        </Link>
+
+        <Link to="/Index">
         <li className="lista">
-            <Link to="/Index"><b>CACHORROS</b></Link>
+            <b>CACHORROS</b>
         </li>
+        </Link>
+
+        <Link to="/Estoque">
         <li className="lista">
-            <Link to="/Stats"><b>ESTATÍSTICAS</b></Link>
+            <b>ESTOQUE</b>
         </li>
+        </Link>
+        </div>
     </ul>
 </nav>
 
