@@ -4,8 +4,10 @@
   width: 80%;
   height: 90%;
   border-radius: 20px;
+  padding-top: 20px;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -13,41 +15,38 @@
   text-align: center;
 }
 
-.stats_div {
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
-  padding: 25px 30px;
-  max-width: 320px;
-  box-shadow:
-    rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  color: #222;
-}
-
-.stats_user h2 {
-  margin-bottom: 15px;
-  font-weight: 700;
-  color: rgb(55, 20, 90);
-}
-
 .dog-list-stats {
-  list-style: none;
+  width: 100%;
+  max-width: 700px;
+  margin: 24px auto;
+  border-radius: 16px;
+  border: none;
   padding: 0;
-  margin-bottom: 20px;
-  font-size: 14px;
+  overflow: hidden;
 }
 
-.dog-list-stats li {
+.dog-list-stats tr {
   margin-bottom: 8px;
   font-weight: 600;
   color: rgb(30, 30, 30);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
 }
 
-/* Badge de status */
+.dog-list-stats td {
+  color: #3a2a5d;
+  font-weight: 500;
+  border-bottom: 1px solid #ddd;
+}
+
+.dog-list-stats td:nth-child(1) {
+    text-align: left;
+}
+.dog-list-stats td:nth-child(2) {
+    text-align: center;
+}
+.dog-list-stats td:nth-child(3) {
+    text-align: right;
+}
+
 .status {
   padding: 3px 10px;
   border-radius: 12px;
@@ -58,31 +57,60 @@
   letter-spacing: 0.05em;
 }
 
-/* Cores diferentes para cada local */
-.status.veterinario {
-  background-color: #4caf50; /* verde */
+.status.noveterinário {
+  background-color: #ffb347;
 }
 
-.status.petshop {
-  background-color: #ff9800; /* laranja */
+.status.nopetshop {
+  background-color: #4fc3f7;
 }
 
+.status.noabrigo {
+  background-color: #56e976;
+}
 .status.adotado {
-  background-color: #2196f3; /* azul */
-}
-.status.adotado {
-  background-color: #f3e921; /* azul */
-}
-.stats_user p {
-  margin: 5px 0;
-  font-weight: 600;
-  font-size: 15px;
-  color: rgb(60, 60, 60);
+  background-color: #e95b56;
 }
 
-.stats_user p:first-of-type {
-  margin-top: 15px;
-  font-size: 16px;
-  color: rgb(40, 20, 100);
-  font-weight: 700;
+.tituloTabela {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.divTabelaStats {
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+
+    border-radius: 20px;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    margin-bottom: 32px;
+}
+
+.resumoBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.divCabecalho {
+    background-color: #7f28d1;
+
+    height: 60px;
+    border-radius: 20px 20px 0 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 50px 0 50px;
+}
+
+.resumoGrafico {
+    height: 300px;
+    margin-left: 100px;
+}
+.resumoTexto {
+    font-size: 20px;
+    margin-right: 100px;
 }

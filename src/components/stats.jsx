@@ -3,7 +3,7 @@ import { Navbar } from './navbar/navbar.jsx';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 import './stats.css';
 
-const COLORS = ['#8884d8', '#82ca9d', '#ffc658', '#ff8042'];
+const COLORS = ['#ffb347', '#4fc3f7', '#56e976', '#e95b56'];
 
 // Função para converter idade (ex: "2 anos", "3 meses") para número em anos (float)
 function idadeEmAnos(idadeStr) {
@@ -49,7 +49,7 @@ export function Stats() {
     'No Veterinário': caes.filter(c => c.status === 'No Veterinário').length,
     'No Petshop': caes.filter(c => c.status === 'No Petshop').length,
     'No Abrigo': caes.filter(c => c.status === 'No Abrigo').length,
-    Adotado: caes.filter(c => c.status === 'Adotado').length,
+    'Adotado': caes.filter(c => c.status === 'Adotado').length,
   };
 
   const chartData = [
@@ -63,57 +63,84 @@ export function Stats() {
     <>
       <Navbar />
       <div className="stats">
-        <div className="stats_div" style={{ maxWidth: '320px' }}>
-          <div className="stats_user">
-            <h2>🐶 Lista de Cães Cadastrados</h2>
-            <ul className="dog-list-stats">
-              {caes.map(cao => (
-                <li key={cao.id}>
-                  <strong>{cao.nome}</strong> — {cao.idade}
-                  <span className={`status ${cao.status.replace(/\s/g, '').toLowerCase()}`}>
-                    {cao.status}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            <h2>📊 Resumo dos Cães</h2>
-            <p>
-              🩺 Veterinário: {counts['No Veterinário']} — média: {mediaIdadePorStatus(caes, 'No Veterinário')} anos
-            </p>
-            <p>
-              🏪 Pet Shop: {counts['No Petshop']} — média: {mediaIdadePorStatus(caes, 'No Petshop')} anos
-            </p>
-            <p>
-              🏠 Abrigo: {counts['No Abrigo']} — média: {mediaIdadePorStatus(caes, 'No Abrigo')} anos
-            </p>
-            <p>
-              🎉 Adotados: {counts['Adotado']} — média: {mediaIdadePorStatus(caes, 'Adotado')} anos
-            </p>
-
-            {chartData.reduce((acc, cur) => acc + cur.value, 0) > 0 && (
-              <div style={{ marginTop: '20px' }}>
-                <PieChart width={300} height={250}>
-                  <Pie
-                    data={chartData}
-                    cx="50%"
-                    cy="50%"
-                    outerRadius={80}
-                    dataKey="value"
-                    label
-                  >
-                    {chartData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <Tooltip />
-                  <Legend />
-                </PieChart>
+            <div className='divTabelaStats'>
+              <div className='divCabecalho'>
+              <h2 className='tituloTabela'>Lista de Cães Cadastrados</h2>
               </div>
-            )}
+              <table className="dog-list-stats">
+                {caes.map(cao => (
+                  <tr key={cao.id}>
+                    <td><strong>{cao.nome}</strong></td>
+                    <td>{cao.idade}</td>
+                    <td>
+                    <span className={`status ${cao.status.replace(/\s/g, '').toLowerCase()}`}>
+                      {cao.status}
+                    </span>
+                    </td>
+                  </tr>
+                ))}
+              </table>
+            </div>
+          <div className='divTabelaStats'>
+              <div className='divCabecalho'>
+                <h2 className='tituloTabela'>Resumo dos Cães</h2>
+              </div>
+              <div className='resumoBody'>
+                <div className='resumoGrafico'>
+                    {chartData.reduce((acc, cur) => acc + cur.value, 0) > 0 && (
+                  <div style={{ marginTop: '20px' }}>
+                    <PieChart width={400} height={300}>
+                      <Pie
+                        data={chartData}
+                        cx="50%"
+                        cy="50%"
+                        outerRadius={100}
+                        dataKey="value"
+                        label
+                      >
+                        {chartData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                      </Pie>
+                      <Tooltip />
+                      <Legend />
+                    </PieChart>
+                  </div>
+                )}
+                </div>
+                <div className='resumoTexto'>
+                <p className='status noveterinário'>
+                  No Veterinário:
+                </p>
+                <p>
+                Total: {counts['No Veterinário']} | Média de idade: {mediaIdadePorStatus(caes, 'No Veterinário')} anos
+                </p>
+                <p className='status nopetshop'>
+                  No Pet Shop:
+                </p>
+                <p>
+                Total: {counts['No Petshop']} | Média de idade: {mediaIdadePorStatus(caes, 'No Petshop')} anos
+                </p>
+                <p className='status noabrigo'>
+                No Abrigo:
+                </p>
+                <p>
+                Total: {counts['No Abrigo']} | Média de idade: {mediaIdadePorStatus(caes, 'No Abrigo')} anos
+                </p>
+                <p className='status adotado'>
+                Adotados:
+                </p>
+                <p>
+                Total: {counts['Adotado']} | Média de idade: {mediaIdadePorStatus(caes, 'Adotado')} anos
+                </p>
+                </div>
+            
+            </div>
+            </div>
+
+            
           </div>
-        </div>
-      </div>
+        
     </>
   );
 }
