@@ -58,19 +58,20 @@
 
 #info_visualizar h2{
     font-family: 'clear-sans';
-    border-bottom: 3px solid rgb(128, 0, 255);
-    border-top: 3px solid rgb(128, 0, 255);
+    text-align: start;
     margin: 0;
-    background-color: rgb(221, 212, 230);
     padding: 10px;
     width: 80%;
     color: rgb(0, 0, 0); 
 }
+
 #info_visualizar p{
     font-family: 'clear-sans';
-    
+    border: 3px solid rgb(128, 0, 255);
+    border-radius: 10px;
+    background-color: rgb(221, 212, 230);
     margin: 0;
-    
+    word-wrap: break-word;
     padding: 10px;
     width: 80%;
     color: rgb(0, 0, 0); 

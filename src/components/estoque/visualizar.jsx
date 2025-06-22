@@ -4,7 +4,7 @@ export function Visualizar({openVisualizar,setOpenVisualizar,codigoSelect}){
 
     const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM") || "[]");
     const Dado = DB_ITEM.find(item => item.codigo === codigoSelect) || [];
-    const img_padrao = "/logos/logo1.png";
+    const img_padrao = "/src/assets/estoque/semimagem.jpg";
 
     
 

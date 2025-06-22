@@ -83,7 +83,7 @@ export function Add({open,setOpen}){
                     </div>
                     <div id="add_all">
                         <h2>Descrição:</h2>
-                        <input id="add_input_descricao" required value={item_novo.descricao} onChange={item_construcao} name="descricao" type="text" />
+                        <input maxlength="100" id="add_input_descricao" required value={item_novo.descricao} onChange={item_construcao} name="descricao" type="text" />
                         <h2>Código:</h2>
                         <input id="add_input_codigo" required value={item_novo.codigo} onChange={item_construcao} name="codigo" type="text" disabled />
                         <h2>Unidade de controle:</h2>
