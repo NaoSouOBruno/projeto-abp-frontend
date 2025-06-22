@@ -95,7 +95,7 @@ export function Registro ({openRegistro,setOpenRegistro}){
 
                             <div id="botoes_registro">
                                 <button onClick={salvar_item}>Registrar</button>
-                                <button onClick={() => {setOpenRegistro(false),setSelectQuantidade(0),setQuantidadeAntiga(0),setAviso(false)}}>Cancelar</button>
+                                <button onClick={() => {setOpenRegistro(false),setSelecionado([]),setSelectQuantidade(0),setQuantidadeAntiga(0),setAviso(false)}}>Cancelar</button>
                             </div>
                         </div>
                     </div>

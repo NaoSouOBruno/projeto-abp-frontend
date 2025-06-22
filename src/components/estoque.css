@@ -9,8 +9,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -115,15 +116,16 @@
 }
 
 #coluna_img{
-    width: 12%;
+    width: 10%;
     height: 10%;
 }
 
 
 #coluna_img img{
-    width: 50%;
-    height: auto;
+    width: 100%;
+    max-height: 150px;
     object-fit: cover;
+    display: block;
 }
 
 
@@ -179,6 +181,7 @@
 #div_filtros h1{
     margin: 0;
     color: #ffffff; 
+
 }
 
 #filtros{

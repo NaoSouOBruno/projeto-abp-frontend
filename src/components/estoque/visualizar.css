@@ -1,11 +1,8 @@
 #menu_visualizar{
     position: fixed;
     z-index: 2;
-    
-    width: 900px;
-    
-    height: 500px;
-    
+    width: 50%;
+    height: 26%;
     font-family: 'clear-sans', Arial, sans-serif;
     background-color: rgb(255, 255, 255);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -22,15 +19,18 @@
     background-color: rgb(106, 83, 206);
     width: 50%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 
 #div_imagem_visualizar img{
-    margin-top: 5%;
     width: 90%;
     height: 90%;
     border-radius: 20px;
     object-fit: cover;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 
@@ -97,11 +97,11 @@
 #botoes_visualizar button{
     
     width: 100px;
+    height: 40px;
     font-size:large;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     border: 1px solid black;
     border-radius: 5px;
-    justify-content:space-around;
     
 
 }

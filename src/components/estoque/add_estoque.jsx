@@ -4,7 +4,6 @@ import { useState,useEffect } from "react"
 
 
 export function Add({open,setOpen}){
-     
     const [codigonumero,setCodigonumero] = useState(0); //variavel usada para o codigo do item
     const [item_novo,setItem_novo] = useState({imagem: '',descricao: '',codigo: codigonumero,unidade: 'Unidade',quantidade: 0}
     );
@@ -56,10 +55,16 @@ export function Add({open,setOpen}){
     
 
     const add_item = () => { //add o item para o local storage e fecha a o menu de criação atualizando a pagina
+        if (item_novo.descricao === '') {
+            alert("Preencha o campo descrição");
+        } else {
+            setItem_novo((antes) => ({
+        ...antes,imagem: "/logos/logo1.png"}));
         const novos_itens = [...DB_ITEM,item_novo];
         localStorage.setItem("DB_ITEM",JSON.stringify(novos_itens));
         setOpen(false);
         window.location.reload(false);
+        }
         }
 
 
@@ -94,8 +99,8 @@ export function Add({open,setOpen}){
                         </select>
                     </div>
                     <div id="botoes_add">
-                        <button onClick={add_item}>Criar</button> 
-                        <button onClick={setOpen}>Cancelar</button>
+                        <button type="button" onClick={add_item}>Criar</button> 
+                        <button type="button" onClick={() => {setOpen(false),setItem_novo({imagem: '',descricao: '',codigo: codigonumero,unidade: 'Unidade',quantidade: 0}); }}>Cancelar</button>
                     </div>
                     </form> 
                 </div>

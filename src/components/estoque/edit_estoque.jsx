@@ -86,7 +86,7 @@ export function Edit({openEdit,setOpenEdit,codigoSelect}){
                     </div>
                     <div id="botoes_editor">
                         <button type="button" onClick={salvar_item}>Editar</button>
-                        <button type="button" onClick={setOpenEdit}>Cancelar</button>
+                        <button type="button" onClick={() => {setOpenEdit(false),setImg("")}}>Cancelar</button>
                     </div>
                     </form>
                 </div>

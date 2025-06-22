@@ -6,9 +6,9 @@
     position: fixed;
     border-radius: 10px ;
     z-index: 2;
-    height: 340px;
-    min-width: 100px;
-    width: 800px;
+    height: 19%;
+    width: 50%;
+    overflow-y: auto;
     border: 20px solid rgba(255, 255, 255, 0.904);
     background-color: rgba(255, 255, 255, 0.904);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
