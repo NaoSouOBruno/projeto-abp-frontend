@@ -58,7 +58,6 @@ body  {
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 10px;
   
   
   
@@ -126,6 +125,10 @@ body  {
   cursor: pointer;
 }
 
-
-
-
+.loginUsuario, .loginSenha {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}

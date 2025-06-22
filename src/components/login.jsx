@@ -1,13 +1,32 @@
 import "./login.css";
 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
+  const navigate = useNavigate();
+
+  function conferirLogin(e) {
+    e.preventDefault();
+    const usuario = e.target.Usuario.value;
+    const senha = e.target.Senha.value;
+
+    if (usuario != '' && senha != '') {
+      navigate('/stats');
+    }
+    else {
+      alert('Preencha todos os campos!');
+    }
+  }
+
+
   return (
     <div className="login_div">
       <img src="/public/logo.png" alt="dog" />
       <div className="login_user">
-        <form action="/index">
+        <form onSubmit={conferirLogin}>
+
+      <div className='inputsForm'>
+        <div className='loginUsuario'>
           <img src="/src/assets/login/user.png" alt="user" />
           <input
             className="login_usuario"
@@ -16,6 +35,9 @@ export function Login() {
             placeholder="Usuário"
             required
           />
+        </div>
+
+        <div className='loginSenha'>
           <img src="/src/assets/login/senha.png" alt="senha" />
           <input
             className="login_senha"
@@ -24,22 +46,11 @@ export function Login() {
             placeholder="Senha"
             required
           />
+        </div>
+        </div>
+          
           <button type="submit">Acessar</button>
-          <Link to="/index">
-            <button type="button" style={{ fontSize: "60%" }}>
-              DEBUG: Acessar Index
-            </button>
-          </Link>
-          <Link to="/estoque">
-            <button type="button" style={{ fontSize: "60%" }}>
-              DEBUG: Acessar Estoque
-            </button>
-          </Link>
-          <Link to="/stats">
-            <button type="button" style={{ fontSize: "60%" }}>
-              DEBUG: Acessar Stats
-            </button>
-          </Link>
+
         </form>
       </div>
     </div>
