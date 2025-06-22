@@ -5,11 +5,22 @@ import Select from 'react-select'
 
 export function Registro ({openRegistro,setOpenRegistro}){
 
-    const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM") || "[]");
+    
     const [quantidadeAntiga,setQuantidadeAntiga] = useState(0);
     const [selectQuatidade,setSelectQuantidade] = useState(0);
     const [selecionado,setSelecionado] = useState([]);
     const [aviso,setAviso] = useState(false);
+
+    const [DB_ITEM,setDB_ITEM] = useState([]);
+    
+    useEffect(() => {
+            const dados = localStorage.getItem('DB_ITEM'); // pega os daods de local storage se tiver alguma coisa, se não continua vazia
+            if (dados !== null && dados !== undefined){
+                setDB_ITEM(JSON.parse(dados));
+            }
+        },[]);
+
+
     
     useEffect(() => {
 

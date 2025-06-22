@@ -1,13 +1,20 @@
+import { useState, useEffect } from 'react';
 import './visualizar.css' 
 
 export function Visualizar({openVisualizar,setOpenVisualizar,codigoSelect}){
-
-    const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM") || "[]");
-    const Dado = DB_ITEM.find(item => item.codigo === codigoSelect) || [];
+    
     const img_padrao = "/src/assets/estoque/semimagem.jpg";
 
+    const [DB_ITEM,setDB_ITEM] = useState([]);
     
+    useEffect(() => {
+            const dados = localStorage.getItem('DB_ITEM'); // pega os daods de local storage se tiver alguma coisa, se não continua vazia
+            if (dados !== null && dados !== undefined){
+                setDB_ITEM(JSON.parse(dados));
+            }
+        },[]);    
 
+    const Dado = DB_ITEM.find(item => item.codigo === codigoSelect) || [];
     if (!openVisualizar) return null;
 
     return(

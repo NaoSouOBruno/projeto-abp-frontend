@@ -1,10 +1,21 @@
-
+import { useState, useEffect } from 'react';
 import "./delete_estoque.css"
 
 export function Delete({openDelete,setOpenDelete,codigoSelect}){
 
-    const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM") || "[]");
+    
     const codigo = codigoSelect;
+
+    const [DB_ITEM,setDB_ITEM] = useState([""]);
+    
+    useEffect(() => {
+            const dados = localStorage.getItem('DB_ITEM'); // pega os daods de local storage se tiver alguma coisa, se não continua vazia
+            if (dados !== null && dados !== undefined){
+                setDB_ITEM(JSON.parse(dados));
+            }
+        },[]);
+    
+
 
     function deletar(){
         const novoDB_ITEM = DB_ITEM.filter(item => item.codigo != codigo); // faz uma nova db sem o item com aquele codigo

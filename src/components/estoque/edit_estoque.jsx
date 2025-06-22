@@ -3,14 +3,27 @@ import { useEffect, useState } from 'react';
 
 export function Edit({openEdit,setOpenEdit,codigoSelect}){
     
-    const DB_ITEM = JSON.parse(localStorage.getItem("DB_ITEM") || "[]");
+    
     const [Img,setImg] = useState("") //usado para conseguirmos alterar a img
     const [item_edit,setItem_edit] = useState([""]);
     
+    const [DB_ITEM,setDB_ITEM] = useState([]);
+    
+    useEffect(() => {
+
+            const dados = localStorage.getItem('DB_ITEM'); // pega os daods de local storage se tiver alguma coisa, se não continua vazia
+            if (dados !== null && dados !== undefined){
+                setDB_ITEM(JSON.parse(dados));
+            }
+        },[]);
+
+
+
     const Dado = DB_ITEM.find(item => item.codigo === codigoSelect) || "[]" ; 
 
+
     useEffect(() => {
-            setItem_edit(Dado) // teste para ver se tá chegando
+            setItem_edit(Dado) 
         },[codigoSelect])    
         
 
@@ -24,8 +37,6 @@ export function Edit({openEdit,setOpenEdit,codigoSelect}){
             }
         }
 
-        
-        
         
 
     function item_construcao(e){   //constroi o item quando o input recebe alteração
@@ -73,9 +84,9 @@ export function Edit({openEdit,setOpenEdit,codigoSelect}){
                     <img src={Img && Img !== "" ? Img : Dado.imagem && Dado.imagem !== "" ? Dado.imagem : "/src/assets/estoque/semimagem.jpg"} alt="" />
                     <div id="all_editor">
                         <h2>Descrição:</h2>
-                        <input id="edit_descricao" onChange={item_construcao} defaultValue={Dado.descricao} name="descricao" type="text" />
+                        <input id="edit_descricao" onChange={(e) => {item_construcao(e)}} defaultValue={Dado.descricao} name="descricao" type="text" />
                         <h2>Unidade de controle:</h2>
-                        <select id="edit_unidade" onChange={item_construcao} defaultValue={Dado.unidade} name="unidade" type="text">
+                        <select id="edit_unidade" onChange={(e) => {item_construcao(e)}} defaultValue={Dado.unidade} name="unidade" type="text">
                             <option value="Unidade">Unidade</option>
                             <option value="Pacote">Pacote</option>
                             <option value="Caixa">Caixa</option>
