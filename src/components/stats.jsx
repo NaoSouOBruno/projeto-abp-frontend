@@ -65,13 +65,13 @@ export function Stats() {
         <div className="stats">
             <div className='divTabelaStats'>
               <div className='divCabecalho'>
-                <h2 className='tituloTabela'>Resumo dos Cães</h2>
+                <h2 className='tituloTabela'>Relatório Geral - Canil</h2>
               </div>
               <div className='resumoBody'>
                 <div className='resumoGrafico'>
                   {chartData.reduce((acc, cur) => acc + cur.value, 0) > 0 && (
                     <div style={{ marginTop: '20px' }}>
-                      <PieChart width={300} height={250}>
+                      <PieChart width={300} height={300}>
                         <Pie
                           data={chartData}
                           cx="50%"
@@ -122,7 +122,7 @@ export function Stats() {
                       <strong>Total: {counts['Adotado']}</strong> <br/> Média de idade: {mediaIdadePorStatus(caes, 'Adotado')} anos
                     </p>
                   </div>
-                  
+
                 </div>
               </div>
             </div>

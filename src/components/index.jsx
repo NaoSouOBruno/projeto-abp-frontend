@@ -98,7 +98,7 @@ export function Index() {
         const { name, value, files } = e.target;
         if (name === 'img' && files.length > 0) {                                                       // verifica campo imagem
             const reader = new FileReader();
-            reader.onload = function(e) {
+        reader.onload = function(e) {
             setForm({ ...form, img: e.target.result });
         };
         reader.readAsDataURL(files[0]);
@@ -119,7 +119,11 @@ export function Index() {
     function alterarFormEditar(e) {
         const { name, value, files } = e.target;
         if (name === 'img' && files.length > 0) {                                                       // verifica campo imagem
-            setCaoEditar({ ...caoEditar, img: URL.createObjectURL(files[0]) });                         // cria url temporaria
+            const reader = new FileReader();
+        reader.onload = function(e) {
+            setCaoEditar({ ...caoEditar, img: e.target.result });                    // cria url temporaria
+        };
+        reader.readAsDataURL(files[0]);
         } else {
             setCaoEditar({ ...caoEditar, [name]: value });                                              // atualiza o estado do cachorro a ser editado
         }
