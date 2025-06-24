@@ -96,7 +96,7 @@
     height: 40px;
     width: 100px;
     font-size:large;
-    background-color: white;
+    background-color: rgb(221, 212, 230);
     border: 1px solid black;
     border-radius: 5px;
     justify-content:space-around;
@@ -105,6 +105,7 @@
 
 #botoes_registro button:hover{
 
+    color: rgb(255, 255, 255);
     box-shadow: rgba(93, 93, 159, 0.829) 0px 13px 27px -5px, rgba(0, 0, 0, 0.822) 0px 8px 16px -8px;
     background-color: rgb(113, 76, 201);
     border-radius: 3px;
