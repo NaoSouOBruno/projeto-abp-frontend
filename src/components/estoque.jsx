@@ -47,13 +47,11 @@ export function Estoque(){
     //filtro
 
     const estoque_filtro = DB_ITEM.filter((item) =>
-        
-        (item.descricao || "" ).toLowerCase().includes((filtroNome || "" ).toLowerCase()) &&
-        (item.codigo || "" ).toString().includes((filtroCodigo || "")) &&
-        (item.quantidade || "" ).toString().includes((filtroQuantidade || "" )) &&
-        (item.unidade || "").includes((filtroUnidade || "" ))
-    )
-
+        (item.descricao || "").toLowerCase().includes((filtroNome || "").toLowerCase()) &&
+        (filtroCodigo === "" || item.codigo === Number(filtroCodigo)) &&
+        (filtroQuantidade === "" || item.quantidade === Number(filtroQuantidade)) &&
+        (item.unidade || "").includes((filtroUnidade || ""))
+    );
 
 
 
