@@ -19,13 +19,18 @@ body  {
   align-items: center;
   text-align: center;
   background: linear-gradient( rgb(127, 40, 209), rgb(38, 92, 192));
+}
 
+.wrapLogin {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
 .login_div{
   width: 200px ;
-  margin-top: 10%;
   height: 280px;
   border-radius: 20px;
   display: flex;
