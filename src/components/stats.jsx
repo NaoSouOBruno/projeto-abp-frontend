@@ -62,10 +62,73 @@ export function Stats() {
   return (
     <>
       <Navbar />
-      <div className="stats">
+        <div className="stats">
             <div className='divTabelaStats'>
               <div className='divCabecalho'>
-              <h2 className='tituloTabela'>Lista de Cães Cadastrados</h2>
+                <h2 className='tituloTabela'>Resumo dos Cães</h2>
+              </div>
+              <div className='resumoBody'>
+                <div className='resumoGrafico'>
+                  {chartData.reduce((acc, cur) => acc + cur.value, 0) > 0 && (
+                    <div style={{ marginTop: '20px' }}>
+                      <PieChart width={300} height={250}>
+                        <Pie
+                          data={chartData}
+                          cx="50%"
+                          cy="50%"
+                          outerRadius={100}
+                          dataKey="value"
+                          label
+                        >
+                          {chartData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                          ))}
+                        </Pie>
+                        <Tooltip />
+                      </PieChart>
+                    </div>
+                  )}
+                </div>
+                <div className='resumoTexto'>
+
+                  <div className='resumoTexto1'>
+                    <p className='status noveterinário'>
+                      No Veterinário
+                    </p>
+                    <p className='resumoTextoP'>
+                      <strong>Total: {counts['No Veterinário']}</strong> <br/> Média de idade: {mediaIdadePorStatus(caes, 'No Veterinário')} anos
+                    </p>
+                    <br/>
+                    <p className='status nopetshop'>
+                      No Petshop
+                    </p>
+                    <p className='resumoTextoP'>
+                      <strong>Total: {counts['No Petshop']}</strong> <br/> Média de idade: {mediaIdadePorStatus(caes, 'No Petshop')} anos
+                    </p>
+                  </div>
+
+                  <div className='resumoTexto2'>
+                    <p className='status noabrigo'>
+                      No Abrigo
+                    </p>
+                    <p className='resumoTextoP'>
+                      <strong>Total: {counts['No Abrigo']}</strong> <br/> Média de idade: {mediaIdadePorStatus(caes, 'No Abrigo')} anos
+                    </p>
+                    <br/>
+                    <p className='status adotado'>
+                      Adotados
+                    </p>
+                    <p className='resumoTextoP'>
+                      <strong>Total: {counts['Adotado']}</strong> <br/> Média de idade: {mediaIdadePorStatus(caes, 'Adotado')} anos
+                    </p>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div className='divTabelaStats'>
+              <div className='divCabecalho'>
+                <h2 className='tituloTabela'>Lista de Cães Cadastrados</h2>
               </div>
               <table className="dog-list-stats">
                 {caes.map(cao => (
@@ -76,79 +139,12 @@ export function Stats() {
                     <span className={`status ${cao.status.replace(/\s/g, '').toLowerCase()}`}>
                       {cao.status}
                     </span>
-                    </td>
+                    </td>                    
                   </tr>
                 ))}
               </table>
             </div>
-          <div className='divTabelaStats'>
-              <div className='divCabecalho'>
-                <h2 className='tituloTabela'>Resumo dos Cães</h2>
-              </div>
-              <div className='resumoBody'>
-                <div className='resumoGrafico'>
-                    {chartData.reduce((acc, cur) => acc + cur.value, 0) > 0 && (
-                  <div style={{ marginTop: '20px' }}>
-                    <PieChart width={300} height={250}>
-                      <Pie
-                        data={chartData}
-                        cx="50%"
-                        cy="50%"
-                        outerRadius={100}
-                        dataKey="value"
-                        label
-                      >
-                        {chartData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
-                      </Pie>
-                      <Tooltip />
-                    </PieChart>
-                  </div>
-                )}
-                </div>
-                <div className='resumoTexto'>
-
-                  <div className='resumoTexto1'>
-                  <p className='status noveterinário'>
-                    No Veterinário
-                  </p>
-                  <p className='resumoTextoP'>
-                  <strong>Total: {counts['No Veterinário']}</strong> <br/> Média de idade: {mediaIdadePorStatus(caes, 'No Veterinário')} anos
-                  </p>
-                  <br/>
-                  <p className='status nopetshop'>
-                    No Petshop
-                  </p>
-                  <p className='resumoTextoP'>
-                  <strong>Total: {counts['No Petshop']}</strong> <br/> Média de idade: {mediaIdadePorStatus(caes, 'No Petshop')} anos
-                  </p>
-                  </div>
-
-                  <div className='resumoTexto2'>
-                  <p className='status noabrigo'>
-                    No Abrigo
-                  </p>
-                  <p className='resumoTextoP'>
-                  <strong>Total: {counts['No Abrigo']}</strong> <br/> Média de idade: {mediaIdadePorStatus(caes, 'No Abrigo')} anos
-                  </p>
-                  <br/>
-                  <p className='status adotado'>
-                    Adotados
-                  </p>
-                  <p className='resumoTextoP'>
-                  <strong>Total: {counts['Adotado']}</strong> <br/> Média de idade: {mediaIdadePorStatus(caes, 'Adotado')} anos
-                  </p>
-                  </div>
-
-                </div>
-            
-            </div>
-            </div>
-
-            
-          </div>
-        
+        </div>
     </>
   );
 }
