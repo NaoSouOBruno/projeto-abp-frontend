@@ -89,7 +89,7 @@ export function Stats() {
                 <div className='resumoGrafico'>
                     {chartData.reduce((acc, cur) => acc + cur.value, 0) > 0 && (
                   <div style={{ marginTop: '20px' }}>
-                    <PieChart width={400} height={300}>
+                    <PieChart width={300} height={250}>
                       <Pie
                         data={chartData}
                         cx="50%"
@@ -103,36 +103,44 @@ export function Stats() {
                         ))}
                       </Pie>
                       <Tooltip />
-                      <Legend />
                     </PieChart>
                   </div>
                 )}
                 </div>
                 <div className='resumoTexto'>
-                <p className='status noveterinário'>
-                  No Veterinário:
-                </p>
-                <p>
-                Total: {counts['No Veterinário']} | Média de idade: {mediaIdadePorStatus(caes, 'No Veterinário')} anos
-                </p>
-                <p className='status nopetshop'>
-                  No Pet Shop:
-                </p>
-                <p>
-                Total: {counts['No Petshop']} | Média de idade: {mediaIdadePorStatus(caes, 'No Petshop')} anos
-                </p>
-                <p className='status noabrigo'>
-                No Abrigo:
-                </p>
-                <p>
-                Total: {counts['No Abrigo']} | Média de idade: {mediaIdadePorStatus(caes, 'No Abrigo')} anos
-                </p>
-                <p className='status adotado'>
-                Adotados:
-                </p>
-                <p>
-                Total: {counts['Adotado']} | Média de idade: {mediaIdadePorStatus(caes, 'Adotado')} anos
-                </p>
+
+                  <div className='resumoTexto1'>
+                  <p className='status noveterinário'>
+                    No Veterinário
+                  </p>
+                  <p className='resumoTextoP'>
+                  <strong>Total: {counts['No Veterinário']}</strong> <br/> Média de idade: {mediaIdadePorStatus(caes, 'No Veterinário')} anos
+                  </p>
+                  <br/>
+                  <p className='status nopetshop'>
+                    No Petshop
+                  </p>
+                  <p className='resumoTextoP'>
+                  <strong>Total: {counts['No Petshop']}</strong> <br/> Média de idade: {mediaIdadePorStatus(caes, 'No Petshop')} anos
+                  </p>
+                  </div>
+
+                  <div className='resumoTexto2'>
+                  <p className='status noabrigo'>
+                    No Abrigo
+                  </p>
+                  <p className='resumoTextoP'>
+                  <strong>Total: {counts['No Abrigo']}</strong> <br/> Média de idade: {mediaIdadePorStatus(caes, 'No Abrigo')} anos
+                  </p>
+                  <br/>
+                  <p className='status adotado'>
+                    Adotados
+                  </p>
+                  <p className='resumoTextoP'>
+                  <strong>Total: {counts['Adotado']}</strong> <br/> Média de idade: {mediaIdadePorStatus(caes, 'Adotado')} anos
+                  </p>
+                  </div>
+
                 </div>
             
             </div>

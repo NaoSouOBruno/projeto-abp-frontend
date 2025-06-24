@@ -16,28 +16,30 @@
 }
 
 .dog-list-stats {
-  width: 100%;
-  max-width: 700px;
+  
+  width: 90%;
   margin: 24px auto;
   border-radius: 16px;
   border: none;
   padding: 0;
+  font-size: 16px;
   overflow: hidden;
 }
 
 .dog-list-stats tr {
   margin-bottom: 8px;
   font-weight: 600;
-  color: rgb(30, 30, 30);
+  color: #7e7e7e;
 }
 
 .dog-list-stats td {
-  color: #3a2a5d;
+  color: #7e7e7e;
   font-weight: 500;
   border-bottom: 1px solid #ddd;
 }
 
 .dog-list-stats td:nth-child(1) {
+    color: #555555;
     text-align: left;
 }
 .dog-list-stats td:nth-child(2) {
@@ -109,8 +111,24 @@
 .resumoGrafico {
     height: 300px;
     margin-left: 100px;
+    
 }
+
 .resumoTexto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
     font-size: 20px;
     margin-right: 100px;
+    padding-bottom: 24px;
+}
+
+.resumoTextoP {
+    font-size: 16px;
+    color: #7e7e7e;
+    margin-top: 8px;
+    margin-bottom: 0;
+    text-align: left;
 }
